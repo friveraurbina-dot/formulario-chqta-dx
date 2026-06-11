@@ -109,7 +109,9 @@ hr.div { border: none; border-top: 1px solid #eee; margin: 14px 0; }
 #toast.err { background: #b91c1c; }
 
 /* CONSULTAS */
-.search-bar { display: grid; grid-template-columns: 1fr 1fr 1fr auto; gap: 10px; align-items: end; margin-bottom: 16px; }
+.search-bar { display: grid; grid-template-columns: 1fr 1fr 1fr auto auto; gap: 10px; align-items: end; margin-bottom: 16px; }
+.btn-excel { background: #1a7a3f; color: #fff; }
+.btn-excel:hover { background: #145e30; }
 .rec-count { font-size: 12px; color: var(--gris-label); margin-bottom: 10px; }
 .rec-count strong { color: var(--rojo); }
 .table-wrap { overflow-x: auto; }
@@ -347,6 +349,7 @@ tbody td { padding: 8px 10px; vertical-align: middle; }
           <input type="date" id="q-hasta" onchange="filtrarRegistros()" />
         </div>
         <button class="btn btn-outline" onclick="limpiarFiltros()">✕ Limpiar</button>
+        <button class="btn btn-excel" onclick="descargarExcel()">⬇ Descargar Excel</button>
       </div>
       <div class="rec-count">Mostrando <strong id="totalVisible">0</strong> de <strong id="totalRec">0</strong> registros</div>
       <div class="table-wrap">
@@ -599,6 +602,73 @@ window.filtrarRegistros = function() {
       <td><button class="btn btn-outline" style="padding:4px 10px;font-size:11px;" onclick="event.stopPropagation();verDetalle('${r.key}')">Ver</button></td>
     </tr>
   `).join('');
+};
+
+// ---- EXPORTAR EXCEL ----
+window.descargarExcel = function() {
+  const q = (document.getElementById('q-texto').value || '').toLowerCase();
+  const desde = document.getElementById('q-desde').value;
+  const hasta = document.getElementById('q-hasta').value;
+
+  let filtrados = todosLosRegistros.filter(r => {
+    const texto = [r.empresa_ejecutora, r.supervisor_siel, r.zona, r.ubicacion, r.capataz, r.tipo_obra, r.proyectista].join(' ').toLowerCase();
+    return (!q || texto.includes(q)) &&
+           (!desde || r.fecha_ejecucion >= desde) &&
+           (!hasta || r.fecha_ejecucion <= hasta);
+  });
+
+  if (filtrados.length === 0) { toast('No hay registros para exportar.', 'err'); return; }
+
+  const encabezados = [
+    'N°', 'Fecha ejecución', 'Empresa ejecutora', 'Hora inicio', 'Hora término',
+    'Supervisor SIEL', 'Proyectista Chilquinta', 'Descripción de la obra',
+    'Ubicación', 'Zona', 'Capataz', 'Tipo de obra',
+    'Permiso de trabajo', 'N° vale devolución', 'Fuera de horario', 'Fuera de zona',
+    'Foto antes (URL)', 'Foto después (URL)', 'Fecha registro'
+  ];
+
+  const filas = filtrados.map((r, i) => [
+    filtrados.length - i,
+    r.fecha_ejecucion || '',
+    r.empresa_ejecutora || '',
+    r.hora_inicio || '',
+    r.hora_termino || '',
+    r.supervisor_siel || '',
+    r.proyectista || '',
+    r.descripcion_obra || '',
+    r.ubicacion || '',
+    r.zona || '',
+    r.capataz || '',
+    r.tipo_obra || '',
+    r.permiso_trabajo || '',
+    r.vale_devolucion || '',
+    r.fuera_horario ? 'Sí' : 'No',
+    r.fuera_zona ? 'Sí' : 'No',
+    r.foto_antes ? 'Foto adjunta (base64)' : 'Sin foto',
+    r.foto_despues ? 'Foto adjunta (base64)' : 'Sin foto',
+    r.timestamp ? new Date(r.timestamp).toLocaleString('es-CL') : ''
+  ]);
+
+  // Construir CSV con BOM para Excel en español
+  const BOM = '\uFEFF';
+  const csvContent = BOM + [encabezados, ...filas]
+    .map(row => row.map(cell => {
+      const str = String(cell).replace(/"/g, '""');
+      return `"${str}"`;
+    }).join(';'))
+    .join('\r\n');
+
+  const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  const fecha = new Date().toISOString().slice(0,10);
+  a.href = url;
+  a.download = `registros_chqta_dx_${fecha}.csv`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  toast(`✓ Excel descargado (${filtrados.length} registros)`, 'ok');
 };
 
 window.limpiarFiltros = function() {
