@@ -22,37 +22,36 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: var(--gris-fondo)
 
 /* HEADER */
 header { background: var(--rojo); color: var(--blanco); box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
-.header-inner { max-width: 1050px; margin: 0 auto; display: flex; align-items: center; gap: 16px; padding: 14px 24px; }
-.logo-circle { width: 50px; height: 50px; background: var(--blanco); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.logo-circle span { font-size: 11px; font-weight: 800; color: var(--rojo); text-align: center; line-height: 1.2; }
-.header-text h1 { font-size: 17px; font-weight: 700; }
-.header-text p { font-size: 12px; opacity: 0.82; margin-top: 2px; }
+.header-inner { max-width: 1050px; margin: 0 auto; display: flex; align-items: center; gap: 14px; padding: 12px 20px; }
+.logo-circle { width: 46px; height: 46px; background: var(--blanco); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.logo-circle span { font-size: 10px; font-weight: 800; color: var(--rojo); text-align: center; line-height: 1.2; }
+.header-text h1 { font-size: 16px; font-weight: 700; }
+.header-text p { font-size: 11px; opacity: 0.82; margin-top: 1px; }
 
-/* NAV TABS */
-.nav-tabs { background: var(--rojo-oscuro); padding: 0 24px; display: flex; gap: 0; max-width: 100%; overflow-x: auto; }
-.nav-tab { padding: 11px 22px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.6); cursor: pointer; border-bottom: 3px solid transparent; white-space: nowrap; transition: all 0.15s; user-select: none; }
-.nav-tab:hover { color: rgba(255,255,255,0.85); }
+/* NAV */
+.nav-tabs { background: var(--rojo-oscuro); display: flex; overflow-x: auto; }
+.nav-tab { padding: 11px 22px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.6); cursor: pointer; border-bottom: 3px solid transparent; white-space: nowrap; transition: all 0.15s; user-select: none; flex-shrink: 0; }
 .nav-tab.active { color: var(--blanco); border-bottom-color: var(--blanco); }
 
 /* PAGES */
-.page { display: none; max-width: 1050px; margin: 24px auto; padding: 0 16px 48px; }
+.page { display: none; max-width: 1050px; margin: 20px auto; padding: 0 14px 48px; }
 .page.active { display: block; }
 
 /* STEPS */
-.steps-row { display: flex; align-items: center; gap: 8px; margin-bottom: 20px; }
-.step-item { display: flex; align-items: center; gap: 7px; font-size: 12px; font-weight: 600; color: #bbb; }
+.steps-row { display: flex; align-items: center; gap: 6px; margin-bottom: 18px; flex-wrap: wrap; }
+.step-item { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: #bbb; }
 .step-item.active { color: var(--rojo); }
 .step-item.done { color: #1a7a3f; }
-.step-num { width: 26px; height: 26px; border-radius: 50%; border: 2px solid currentColor; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; }
+.step-num { width: 24px; height: 24px; border-radius: 50%; border: 2px solid currentColor; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; }
 .step-item.done .step-num { background: #1a7a3f; color: #fff; border-color: #1a7a3f; }
 .step-item.active .step-num { background: var(--rojo); color: #fff; border-color: var(--rojo); }
-.step-sep { flex: 1; height: 1px; background: #ddd; max-width: 40px; }
+.step-sep { flex: 1; height: 1px; background: #ddd; max-width: 36px; }
 
 /* CARD */
-.card { background: var(--blanco); border-radius: var(--radio); box-shadow: var(--sombra); overflow: hidden; margin-bottom: 16px; }
-.card-header { background: var(--rojo); color: var(--blanco); padding: 10px 18px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; display: flex; align-items: center; gap: 10px; }
-.card-header .step-badge { background: rgba(255,255,255,0.22); border-radius: 4px; padding: 2px 9px; font-size: 11px; }
-.card-body { padding: 18px; }
+.card { background: var(--blanco); border-radius: var(--radio); box-shadow: var(--sombra); overflow: hidden; margin-bottom: 14px; }
+.card-header { background: var(--rojo); color: var(--blanco); padding: 10px 16px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.step-badge { background: rgba(255,255,255,0.22); border-radius: 4px; padding: 2px 8px; font-size: 11px; }
+.card-body { padding: 16px; }
 
 /* FIELDS */
 .field-row { display: grid; gap: 12px; margin-bottom: 12px; }
@@ -60,102 +59,138 @@ header { background: var(--rojo); color: var(--blanco); box-shadow: 0 2px 8px rg
 .col-2 { grid-template-columns: 1fr 1fr; }
 .col-3 { grid-template-columns: 1fr 1fr 1fr; }
 .col-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
-.col-1-3 { grid-template-columns: 1.5fr 1fr 1fr; }
 .field-group { display: flex; flex-direction: column; gap: 4px; }
 .field-group.span-2 { grid-column: span 2; }
-.field-group.span-3 { grid-column: span 3; }
-.field-group.span-4 { grid-column: span 4; }
 label.fl { font-size: 11px; font-weight: 700; color: var(--gris-label); text-transform: uppercase; letter-spacing: 0.05em; }
 label.fl .req { color: var(--rojo); }
 input[type=text], input[type=date], input[type=time], select, textarea {
   border: 1px solid var(--gris-borde); border-radius: 4px; padding: 8px 10px;
   font-size: 13px; color: var(--gris-texto); background: var(--blanco);
-  width: 100%; transition: border-color 0.15s, box-shadow 0.15s; font-family: inherit;
+  width: 100%; transition: border-color 0.15s; font-family: inherit;
 }
 input:focus, select:focus, textarea:focus { outline: none; border-color: var(--rojo); box-shadow: 0 0 0 3px rgba(200,16,46,0.09); }
-textarea { resize: vertical; min-height: 56px; }
-.check-row { display: flex; align-items: center; gap: 8px; padding-top: 20px; }
+.check-row { display: flex; align-items: center; gap: 7px; padding-top: 18px; }
 .check-row input[type=checkbox] { width: 16px; height: 16px; accent-color: var(--rojo); cursor: pointer; }
 .check-row span { font-size: 13px; cursor: pointer; }
-hr.div { border: none; border-top: 1px solid #eee; margin: 14px 0; }
+hr.div { border: none; border-top: 1px solid #eee; margin: 12px 0; }
 
-/* PHOTO SECTION */
-.photo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.photo-box { border: 2px dashed var(--gris-borde); border-radius: var(--radio); padding: 16px; text-align: center; cursor: pointer; transition: border-color 0.15s, background 0.15s; position: relative; }
+/* FOTOS */
+.photo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.photo-box { border: 2px dashed var(--gris-borde); border-radius: var(--radio); padding: 14px; text-align: center; cursor: pointer; transition: border-color 0.15s, background 0.15s; position: relative; }
 .photo-box:hover { border-color: var(--rojo); background: var(--rojo-claro); }
 .photo-box input[type=file] { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; }
-.photo-box .ph-icon { font-size: 32px; margin-bottom: 8px; }
-.photo-box .ph-title { font-size: 13px; font-weight: 700; color: var(--gris-texto); margin-bottom: 4px; }
+.photo-box .ph-icon { font-size: 28px; margin-bottom: 6px; }
+.photo-box .ph-title { font-size: 13px; font-weight: 700; color: var(--gris-texto); margin-bottom: 3px; }
 .photo-box .ph-sub { font-size: 11px; color: var(--gris-label); }
-.photo-preview { width: 100%; max-height: 180px; object-fit: cover; border-radius: 5px; margin-top: 10px; display: none; }
-.photo-name { font-size: 11px; color: #1a7a3f; font-weight: 600; margin-top: 6px; display: none; }
+.photo-preview { width: 100%; max-height: 160px; object-fit: cover; border-radius: 5px; margin-top: 8px; display: none; }
+.photo-name { font-size: 11px; color: #1a7a3f; font-weight: 600; margin-top: 5px; display: none; }
 
-/* ACTIONS */
-.actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 10px; }
-.btn { padding: 9px 22px; border-radius: 5px; font-size: 13px; font-weight: 600; cursor: pointer; border: none; display: flex; align-items: center; gap: 6px; transition: background 0.15s, transform 0.1s; font-family: inherit; }
+/* BOTONES */
+.actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+.btn { padding: 9px 20px; border-radius: 5px; font-size: 13px; font-weight: 600; cursor: pointer; border: none; display: inline-flex; align-items: center; gap: 6px; transition: background 0.15s, transform 0.1s; font-family: inherit; }
 .btn:active { transform: scale(0.98); }
 .btn-outline { background: var(--blanco); border: 1.5px solid var(--gris-borde); color: var(--gris-texto); }
-.btn-outline:hover { background: #f5f5f5; border-color: #bbb; }
+.btn-outline:hover { background: #f5f5f5; }
 .btn-primary { background: var(--rojo); color: var(--blanco); }
 .btn-primary:hover { background: var(--rojo-oscuro); }
 .btn-primary:disabled { background: #ccc; cursor: not-allowed; }
-.btn-green { background: #1a7a3f; color: #fff; }
-.btn-green:hover { background: #145e30; }
+.btn-excel { background: #1a7a3f; color: #fff; }
+.btn-excel:hover { background: #145e30; }
 
 /* TOAST */
-#toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(80px); background: #222; color: #fff; padding: 12px 22px; border-radius: 8px; font-size: 13px; font-weight: 500; box-shadow: 0 4px 16px rgba(0,0,0,0.2); transition: transform 0.3s; z-index: 9999; pointer-events: none; white-space: nowrap; }
+#toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(80px); background: #222; color: #fff; padding: 11px 20px; border-radius: 8px; font-size: 13px; font-weight: 500; box-shadow: 0 4px 16px rgba(0,0,0,0.2); transition: transform 0.3s; z-index: 9999; pointer-events: none; white-space: nowrap; }
 #toast.show { transform: translateX(-50%) translateY(0); }
 #toast.ok { background: #1a7a3f; }
 #toast.err { background: #b91c1c; }
 
-/* CONSULTAS */
+/* BARRA CONSULTAS */
 .search-bar { display: grid; grid-template-columns: 1fr 1fr 1fr auto; gap: 10px; align-items: end; margin-bottom: 12px; }
-.btn-excel { background: #1a7a3f; color: #fff; }
-.btn-excel:hover { background: #145e30; }
-.export-row { display: flex; justify-content: flex-end; margin-bottom: 12px; }
-.rec-count { font-size: 12px; color: var(--gris-label); margin-bottom: 10px; }
+.export-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px; }
+.rec-count { font-size: 12px; color: var(--gris-label); }
 .rec-count strong { color: var(--rojo); }
-.table-wrap { overflow-x: auto; }
-table { width: 100%; border-collapse: collapse; font-size: 12px; min-width: 900px; }
+
+/* TOGGLE VISTA */
+.vista-toggle { display: flex; border: 1.5px solid var(--gris-borde); border-radius: 5px; overflow: hidden; }
+.vt-btn { padding: 6px 14px; font-size: 12px; font-weight: 600; cursor: pointer; background: var(--blanco); color: var(--gris-label); border: none; transition: background 0.15s, color 0.15s; display: flex; align-items: center; gap: 5px; font-family: inherit; }
+.vt-btn.active { background: var(--rojo); color: #fff; }
+
+/* TABLA */
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+table { width: 100%; border-collapse: collapse; font-size: 12px; min-width: 860px; }
 thead tr { background: var(--rojo); color: var(--blanco); }
 thead th { padding: 9px 10px; text-align: left; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; white-space: nowrap; }
 tbody tr { border-bottom: 1px solid #f0f0f0; cursor: pointer; }
 tbody tr:hover { background: var(--rojo-claro); }
-tbody td { padding: 8px 10px; vertical-align: middle; }
-.badge-si { background: #e6f4ea; color: #1a7a3f; border-radius: 4px; padding: 2px 7px; font-size: 11px; font-weight: 600; }
-.badge-no { background: #f5f5f5; color: #999; border-radius: 4px; padding: 2px 7px; font-size: 11px; }
-.thumb { width: 36px; height: 36px; object-fit: cover; border-radius: 4px; border: 1px solid #ddd; }
-.no-foto { width: 36px; height: 36px; background: #f0f0f0; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 16px; }
-.empty-state { text-align: center; padding: 40px; color: #bbb; font-size: 13px; }
+tbody td { padding: 7px 10px; vertical-align: middle; }
+.badge-si { background: #e6f4ea; color: #1a7a3f; border-radius: 4px; padding: 2px 6px; font-size: 11px; font-weight: 600; }
+.badge-no { background: #f5f5f5; color: #999; border-radius: 4px; padding: 2px 6px; font-size: 11px; }
+.thumb { width: 34px; height: 34px; object-fit: cover; border-radius: 4px; border: 1px solid #ddd; }
+.no-foto { width: 34px; height: 34px; background: #f0f0f0; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+.empty-state { text-align: center; padding: 36px; color: #bbb; font-size: 13px; }
+
+/* TARJETAS */
+.cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
+.reg-card { background: var(--blanco); border: 1px solid var(--gris-borde); border-radius: var(--radio); overflow: hidden; cursor: pointer; transition: box-shadow 0.15s, border-color 0.15s; }
+.reg-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.12); border-color: var(--rojo); }
+.card-top { background: var(--rojo); color: var(--blanco); padding: 9px 14px; display: flex; justify-content: space-between; align-items: center; }
+.card-top .c-num { font-size: 11px; font-weight: 700; opacity: 0.8; }
+.card-top .c-fecha { font-size: 13px; font-weight: 700; }
+.card-info { padding: 10px 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 7px 12px; }
+.ci { display: flex; flex-direction: column; gap: 1px; }
+.ci-label { font-size: 10px; color: var(--gris-label); text-transform: uppercase; letter-spacing: 0.04em; font-weight: 600; }
+.ci-val { font-size: 12px; color: var(--gris-texto); font-weight: 500; }
+.card-photos { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--gris-borde); }
+.cp-slot { padding: 8px 12px; display: flex; align-items: center; gap: 8px; }
+.cp-slot:first-child { border-right: 1px solid var(--gris-borde); }
+.cp-thumb { width: 38px; height: 38px; border-radius: 4px; object-fit: cover; border: 1px solid #ddd; flex-shrink: 0; }
+.cp-nofoto { width: 38px; height: 38px; background: #f5f5f5; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+.cp-text { font-size: 10px; color: var(--gris-label); line-height: 1.3; }
+.cp-text strong { display: block; color: var(--gris-texto); font-size: 11px; }
+.card-footer { padding: 7px 14px; border-top: 1px solid var(--gris-borde); display: flex; justify-content: flex-end; }
+.btn-ver-card { background: none; border: 1px solid var(--rojo); color: var(--rojo); border-radius: 4px; padding: 4px 12px; font-size: 11px; font-weight: 600; cursor: pointer; font-family: inherit; }
+
+/* MODAL */
+.modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 1000; align-items: center; justify-content: center; padding: 16px; }
+.modal-overlay.open { display: flex; }
+.modal { background: var(--blanco); border-radius: 10px; max-width: 760px; width: 100%; max-height: 92vh; overflow-y: auto; box-shadow: 0 8px 40px rgba(0,0,0,0.25); }
+.modal-header { background: var(--rojo); color: var(--blanco); padding: 13px 18px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; }
+.modal-header h3 { font-size: 14px; font-weight: 700; }
+.modal-close { background: none; border: none; color: var(--blanco); font-size: 22px; cursor: pointer; line-height: 1; }
+.modal-body { padding: 18px; }
+.modal-section { margin-bottom: 16px; }
+.modal-section h4 { font-size: 11px; font-weight: 700; color: var(--gris-label); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1px solid #eee; }
+.modal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; }
+.modal-field .mf-label { color: var(--gris-label); font-size: 10px; font-weight: 700; text-transform: uppercase; margin-bottom: 2px; letter-spacing: 0.04em; }
+.modal-field .mf-val { color: var(--gris-texto); font-size: 13px; font-weight: 500; }
+.modal-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.modal-photo-box { border-radius: 6px; overflow: hidden; border: 1px solid #eee; }
+.modal-photo-box img { width: 100%; max-height: 200px; object-fit: cover; display: block; }
+.modal-photo-box .mp-label { padding: 7px 10px; font-size: 11px; font-weight: 700; color: var(--gris-label); text-transform: uppercase; background: #fafafa; border-top: 1px solid #eee; }
+.no-photo-box { background: #f5f5f5; height: 140px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #ccc; font-size: 12px; gap: 5px; }
+
+/* SPINNER */
 .spinner { display: inline-block; width: 13px; height: 13px; border: 2px solid rgba(255,255,255,0.4); border-top-color: #fff; border-radius: 50%; animation: spin 0.6s linear infinite; vertical-align: middle; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* MODAL */
-.modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 1000; align-items: center; justify-content: center; padding: 20px; }
-.modal-overlay.open { display: flex; }
-.modal { background: var(--blanco); border-radius: 10px; max-width: 780px; width: 100%; max-height: 90vh; overflow-y: auto; box-shadow: 0 8px 40px rgba(0,0,0,0.25); }
-.modal-header { background: var(--rojo); color: var(--blanco); padding: 14px 20px; display: flex; justify-content: space-between; align-items: center; }
-.modal-header h3 { font-size: 14px; font-weight: 700; }
-.modal-close { background: none; border: none; color: var(--blanco); font-size: 20px; cursor: pointer; line-height: 1; }
-.modal-body { padding: 20px; }
-.modal-section { margin-bottom: 18px; }
-.modal-section h4 { font-size: 11px; font-weight: 700; color: var(--gris-label); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1px solid #eee; }
-.modal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; }
-.modal-field { font-size: 13px; }
-.modal-field .mf-label { color: var(--gris-label); font-size: 11px; font-weight: 600; text-transform: uppercase; margin-bottom: 2px; }
-.modal-field .mf-val { color: var(--gris-texto); font-weight: 500; }
-.modal-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.modal-photo-box { border-radius: 7px; overflow: hidden; border: 1px solid #eee; }
-.modal-photo-box img { width: 100%; max-height: 220px; object-fit: cover; display: block; }
-.modal-photo-box .mp-label { padding: 8px 12px; font-size: 12px; font-weight: 700; color: var(--gris-label); text-transform: uppercase; letter-spacing: 0.04em; background: #fafafa; border-top: 1px solid #eee; }
-.no-photo-box { background: #f5f5f5; height: 160px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #ccc; font-size: 12px; gap: 6px; }
-
-@media(max-width:640px){
-  .col-2,.col-3,.col-4,.col-1-3,.search-bar { grid-template-columns: 1fr; }
+/* RESPONSIVE MOBILE */
+@media (max-width: 640px) {
+  .header-text h1 { font-size: 14px; }
+  .col-2, .col-3, .col-4 { grid-template-columns: 1fr; }
+  .field-group.span-2 { grid-column: span 1; }
   .photo-grid { grid-template-columns: 1fr; }
-  .modal-grid,.modal-photos { grid-template-columns: 1fr; }
-  .field-group.span-2,.field-group.span-3,.field-group.span-4 { grid-column: span 1; }
-  .nav-tab { padding: 11px 14px; font-size: 12px; }
+  .search-bar { grid-template-columns: 1fr; }
+  .modal-grid, .modal-photos { grid-template-columns: 1fr; }
+  .cards-grid { grid-template-columns: 1fr; }
+  .card-info { grid-template-columns: 1fr 1fr; }
+  .nav-tab { padding: 10px 14px; font-size: 12px; }
+  table { font-size: 11px; }
+  thead th, tbody td { padding: 6px 8px; }
+  .actions { justify-content: stretch; }
+  .actions .btn { flex: 1; justify-content: center; }
+  .export-row { flex-direction: column; align-items: stretch; }
+  .export-row .btn-excel { width: 100%; justify-content: center; }
+  .vista-toggle { width: 100%; }
+  .vt-btn { flex: 1; justify-content: center; }
 }
 </style>
 </head>
@@ -172,106 +207,51 @@ tbody td { padding: 8px 10px; vertical-align: middle; }
 </header>
 
 <div class="nav-tabs">
-  <div class="nav-tab active" onclick="showPage('registro')">📋 Nuevo Registro</div>
-  <div class="nav-tab" onclick="showPage('consultas')">🔍 Consultar Registros</div>
+  <div class="nav-tab active" id="tab-registro" onclick="showPage('registro',this)">📋 Nuevo Registro</div>
+  <div class="nav-tab" id="tab-consultas" onclick="showPage('consultas',this)">🔍 Consultar Registros</div>
 </div>
 
-<!-- ==================== PÁGINA REGISTRO ==================== -->
+<!-- ===== PÁGINA REGISTRO ===== -->
 <div id="page-registro" class="page active">
-
   <div class="steps-row">
-    <div class="step-item active" id="step1-item">
-      <div class="step-num">1</div><span>Antecedentes generales</span>
-    </div>
+    <div class="step-item active" id="step1-item"><div class="step-num">1</div><span>Antecedentes generales</span></div>
     <div class="step-sep"></div>
-    <div class="step-item" id="step2-item">
-      <div class="step-num">2</div><span>Trazabilidad fotográfica</span>
-    </div>
+    <div class="step-item" id="step2-item"><div class="step-num">2</div><span>Trazabilidad fotográfica</span></div>
     <div class="step-sep"></div>
-    <div class="step-item" id="step3-item">
-      <div class="step-num">3</div><span>Guardar</span>
-    </div>
+    <div class="step-item" id="step3-item"><div class="step-num">3</div><span>Guardar</span></div>
   </div>
 
   <!-- PASO 1 -->
   <div id="paso1">
     <div class="card">
-      <div class="card-header">
-        <span class="step-badge">Paso 1</span>
-        Antecedentes generales
-      </div>
+      <div class="card-header"><span class="step-badge">Paso 1</span> Antecedentes generales</div>
       <div class="card-body">
         <div class="field-row col-4">
-          <div class="field-group">
-            <label class="fl">Fecha ejecución <span class="req">*</span></label>
-            <input type="date" id="fecha_ejecucion" />
-          </div>
-          <div class="field-group">
-            <label class="fl">Empresa ejecutora <span class="req">*</span></label>
-            <input type="text" id="empresa_ejecutora" placeholder="Nombre empresa" />
-          </div>
-          <div class="field-group">
-            <label class="fl">Hora inicio</label>
-            <input type="time" id="hora_inicio" />
-          </div>
-          <div class="field-group">
-            <label class="fl">Hora término</label>
-            <input type="time" id="hora_termino" />
-          </div>
+          <div class="field-group"><label class="fl">Fecha ejecución <span class="req">*</span></label><input type="date" id="fecha_ejecucion" /></div>
+          <div class="field-group"><label class="fl">Empresa ejecutora <span class="req">*</span></label><input type="text" id="empresa_ejecutora" placeholder="Nombre empresa" /></div>
+          <div class="field-group"><label class="fl">Hora inicio</label><input type="time" id="hora_inicio" /></div>
+          <div class="field-group"><label class="fl">Hora término</label><input type="time" id="hora_termino" /></div>
         </div>
         <div class="field-row col-3">
-          <div class="field-group">
-            <label class="fl">Supervisor SIEL</label>
-            <input type="text" id="supervisor_siel" placeholder="Nombre y apellido" />
-          </div>
-          <div class="field-group">
-            <label class="fl">Proyectista Chilquinta</label>
-            <input type="text" id="proyectista" placeholder="Nombre y apellido" />
-          </div>
-          <div class="field-group">
-            <label class="fl">Descripción de la obra</label>
-            <input type="text" id="descripcion_obra" placeholder="Descripción breve" />
-          </div>
+          <div class="field-group"><label class="fl">Supervisor SIEL</label><input type="text" id="supervisor_siel" placeholder="Nombre y apellido" /></div>
+          <div class="field-group"><label class="fl">Proyectista Chilquinta</label><input type="text" id="proyectista" placeholder="Nombre y apellido" /></div>
+          <div class="field-group"><label class="fl">Descripción de la obra</label><input type="text" id="descripcion_obra" placeholder="Descripción breve" /></div>
         </div>
         <hr class="div" />
         <div class="field-row col-4">
-          <div class="field-group span-2">
-            <label class="fl">Ubicación</label>
-            <input type="text" id="ubicacion" placeholder="Dirección / sector" />
-          </div>
-          <div class="field-group">
-            <label class="fl">Zona</label>
-            <input type="text" id="zona" placeholder="Ej: Norte" />
-          </div>
-          <div class="field-group">
-            <label class="fl">Capataz</label>
-            <input type="text" id="capataz" placeholder="Nombre capataz" />
-          </div>
+          <div class="field-group span-2"><label class="fl">Ubicación</label><input type="text" id="ubicacion" placeholder="Dirección / sector" /></div>
+          <div class="field-group"><label class="fl">Zona</label><input type="text" id="zona" placeholder="Ej: Norte" /></div>
+          <div class="field-group"><label class="fl">Capataz</label><input type="text" id="capataz" placeholder="Nombre capataz" /></div>
         </div>
         <div class="field-row col-4">
-          <div class="field-group">
-            <label class="fl">Tipo de obra</label>
-            <input type="text" id="tipo_obra" placeholder="Ej: Eléctrica" />
-          </div>
-          <div class="field-group">
-            <label class="fl">Permiso de trabajo</label>
-            <input type="text" id="permiso_trabajo" placeholder="N° permiso" />
-          </div>
-          <div class="field-group">
-            <label class="fl">N° vale devolución</label>
-            <input type="text" id="vale_devolucion" placeholder="N° vale" />
-          </div>
+          <div class="field-group"><label class="fl">Tipo de obra</label><input type="text" id="tipo_obra" placeholder="Ej: Eléctrica" /></div>
+          <div class="field-group"><label class="fl">Permiso de trabajo</label><input type="text" id="permiso_trabajo" placeholder="N° permiso" /></div>
+          <div class="field-group"><label class="fl">N° vale devolución</label><input type="text" id="vale_devolucion" placeholder="N° vale" /></div>
           <div class="field-group">
             <label class="fl">&nbsp;</label>
-            <div style="display:flex;gap:14px;padding-top:6px;">
-              <div class="check-row">
-                <input type="checkbox" id="fuera_horario" />
-                <span>Fuera de horario</span>
-              </div>
-              <div class="check-row">
-                <input type="checkbox" id="fuera_zona" />
-                <span>Fuera de zona</span>
-              </div>
+            <div style="display:flex;gap:12px;padding-top:6px;flex-wrap:wrap;">
+              <div class="check-row"><input type="checkbox" id="fuera_horario" /><span>Fuera de horario</span></div>
+              <div class="check-row"><input type="checkbox" id="fuera_zona" /><span>Fuera de zona</span></div>
             </div>
           </div>
         </div>
@@ -286,18 +266,13 @@ tbody td { padding: 8px 10px; vertical-align: middle; }
   <!-- PASO 2 -->
   <div id="paso2" style="display:none;">
     <div class="card">
-      <div class="card-header">
-        <span class="step-badge">Paso 2</span>
-        Trazabilidad fotográfica
-      </div>
+      <div class="card-header"><span class="step-badge">Paso 2</span> Trazabilidad fotográfica</div>
       <div class="card-body">
         <p style="font-size:13px;color:var(--gris-label);margin-bottom:14px;">Adjunta las fotografías de terreno. Máximo 2MB por imagen (JPG, PNG).</p>
         <div class="photo-grid">
-
-          <!-- FOTO ANTES -->
           <div>
-            <div style="font-size:12px;font-weight:700;color:var(--gris-label);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px;">📷 Fotografía N°1 — Antes de intervención</div>
-            <div class="photo-box" id="box-antes" onclick="document.getElementById('file-antes').click()">
+            <div style="font-size:11px;font-weight:700;color:var(--gris-label);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px;">📷 Fotografía N°1 — Antes de intervención</div>
+            <div class="photo-box" onclick="document.getElementById('file-antes').click()">
               <input type="file" id="file-antes" accept="image/*" onchange="previsualizarFoto('antes')" />
               <div class="ph-icon">🖼️</div>
               <div class="ph-title">Seleccionar foto</div>
@@ -306,11 +281,9 @@ tbody td { padding: 8px 10px; vertical-align: middle; }
               <div id="name-antes" class="photo-name"></div>
             </div>
           </div>
-
-          <!-- FOTO DESPUÉS -->
           <div>
-            <div style="font-size:12px;font-weight:700;color:var(--gris-label);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px;">📷 Fotografía N°2 — Después de intervención</div>
-            <div class="photo-box" id="box-despues" onclick="document.getElementById('file-despues').click()">
+            <div style="font-size:11px;font-weight:700;color:var(--gris-label);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px;">📷 Fotografía N°2 — Después de intervención</div>
+            <div class="photo-box" onclick="document.getElementById('file-despues').click()">
               <input type="file" id="file-despues" accept="image/*" onchange="previsualizarFoto('despues')" />
               <div class="ph-icon">🖼️</div>
               <div class="ph-title">Seleccionar foto</div>
@@ -319,69 +292,58 @@ tbody td { padding: 8px 10px; vertical-align: middle; }
               <div id="name-despues" class="photo-name"></div>
             </div>
           </div>
-
         </div>
-        <div class="actions" style="margin-top:18px;">
+        <div class="actions" style="margin-top:16px;">
           <button class="btn btn-outline" onclick="irPaso1()">← Volver</button>
           <button class="btn btn-primary" id="btnGuardar" onclick="guardarRegistro()">✓ Guardar registro completo</button>
         </div>
       </div>
     </div>
   </div>
-
 </div>
 
-<!-- ==================== PÁGINA CONSULTAS ==================== -->
+<!-- ===== PÁGINA CONSULTAS ===== -->
 <div id="page-consultas" class="page">
   <div class="card">
     <div class="card-header">🔍 Consultar y filtrar registros</div>
     <div class="card-body">
       <div class="search-bar">
-        <div class="field-group">
-          <label class="fl">Buscar (empresa / supervisor / zona)</label>
-          <input type="text" id="q-texto" placeholder="Buscar..." oninput="filtrarRegistros()" />
-        </div>
-        <div class="field-group">
-          <label class="fl">Fecha desde</label>
-          <input type="date" id="q-desde" onchange="filtrarRegistros()" />
-        </div>
-        <div class="field-group">
-          <label class="fl">Fecha hasta</label>
-          <input type="date" id="q-hasta" onchange="filtrarRegistros()" />
-        </div>
-        <button class="btn btn-outline" onclick="limpiarFiltros()">✕ Limpiar</button>
+        <div class="field-group"><label class="fl">Buscar (empresa / supervisor / zona)</label><input type="text" id="q-texto" placeholder="Buscar..." oninput="filtrarRegistros()" /></div>
+        <div class="field-group"><label class="fl">Fecha desde</label><input type="date" id="q-desde" onchange="filtrarRegistros()" /></div>
+        <div class="field-group"><label class="fl">Fecha hasta</label><input type="date" id="q-hasta" onchange="filtrarRegistros()" /></div>
+        <div class="field-group"><label class="fl">&nbsp;</label><button class="btn btn-outline" onclick="limpiarFiltros()">✕ Limpiar</button></div>
       </div>
       <div class="export-row">
-        <button class="btn btn-excel" onclick="descargarExcel()">⬇ Descargar Excel</button>
+        <div class="rec-count">Mostrando <strong id="totalVisible">0</strong> de <strong id="totalRec">0</strong> registros</div>
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+          <div class="vista-toggle">
+            <button class="vt-btn active" id="vt-tabla" onclick="setVista('tabla')">☰ Tabla</button>
+            <button class="vt-btn" id="vt-tarjetas" onclick="setVista('tarjetas')">⊞ Tarjetas</button>
+          </div>
+          <button class="btn btn-excel" onclick="descargarExcel()">⬇ Descargar Excel</button>
+        </div>
       </div>
+
+      <!-- VISTA TABLA -->
+      <div id="vista-tabla">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th><th>Fecha</th><th>Empresa ejecutora</th><th>Hora inicio</th><th>Hora término</th>
+                <th>Supervisor SIEL</th><th>Proyectista</th><th>Ubicación</th><th>Zona</th>
+                <th>Capataz</th><th>Tipo obra</th><th>F. Horario</th><th>F. Zona</th>
+                <th>Foto antes</th><th>Foto después</th><th>Ver</th>
+              </tr>
+            </thead>
+            <tbody id="tablaBody"><tr><td colspan="16" class="empty-state">Cargando registros...</td></tr></tbody>
+          </table>
+        </div>
       </div>
-      <div class="rec-count">Mostrando <strong id="totalVisible">0</strong> de <strong id="totalRec">0</strong> registros</div>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Fecha</th>
-              <th>Empresa ejecutora</th>
-              <th>Hora inicio</th>
-              <th>Hora término</th>
-              <th>Supervisor SIEL</th>
-              <th>Proyectista</th>
-              <th>Ubicación</th>
-              <th>Zona</th>
-              <th>Capataz</th>
-              <th>Tipo obra</th>
-              <th>F. Horario</th>
-              <th>F. Zona</th>
-              <th>Foto antes</th>
-              <th>Foto después</th>
-              <th>Ver</th>
-            </tr>
-          </thead>
-          <tbody id="tablaBody">
-            <tr><td colspan="16" class="empty-state">Cargando registros...</td></tr>
-          </tbody>
-        </table>
+
+      <!-- VISTA TARJETAS -->
+      <div id="vista-tarjetas" style="display:none;">
+        <div class="cards-grid" id="cardsGrid"></div>
       </div>
     </div>
   </div>
@@ -417,10 +379,12 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 const dbRef = ref(db, 'registros_obras');
-
 let todosLosRegistros = [];
+let vistaActual = window.innerWidth < 640 ? 'tarjetas' : 'tabla';
 
-// ---- TOAST ----
+// Aplicar vista según pantalla al cargar
+window.addEventListener('DOMContentLoaded', () => { setVista(vistaActual); });
+
 window.toast = function(msg, tipo='ok') {
   const el = document.getElementById('toast');
   el.textContent = msg;
@@ -428,18 +392,26 @@ window.toast = function(msg, tipo='ok') {
   setTimeout(() => { el.className = ''; }, 3500);
 };
 
-// ---- NAVEGACIÓN ----
-window.showPage = function(p) {
+window.showPage = function(p, tab) {
   document.querySelectorAll('.page').forEach(x => x.classList.remove('active'));
   document.querySelectorAll('.nav-tab').forEach(x => x.classList.remove('active'));
   document.getElementById('page-' + p).classList.add('active');
-  event.target.classList.add('active');
+  tab.classList.add('active');
+};
+
+window.setVista = function(v) {
+  vistaActual = v;
+  document.getElementById('vista-tabla').style.display = v === 'tabla' ? 'block' : 'none';
+  document.getElementById('vista-tarjetas').style.display = v === 'tarjetas' ? 'block' : 'none';
+  document.getElementById('vt-tabla').classList.toggle('active', v === 'tabla');
+  document.getElementById('vt-tarjetas').classList.toggle('active', v === 'tarjetas');
+  filtrarRegistros();
 };
 
 window.irPaso2 = function() {
-  const f = document.getElementById('fecha_ejecucion').value;
-  const e = document.getElementById('empresa_ejecutora').value.trim();
-  if (!f || !e) { toast('Completa Fecha de ejecución y Empresa ejecutora.', 'err'); return; }
+  if (!document.getElementById('fecha_ejecucion').value || !document.getElementById('empresa_ejecutora').value.trim()) {
+    toast('Completa Fecha de ejecución y Empresa ejecutora.', 'err'); return;
+  }
   document.getElementById('paso1').style.display = 'none';
   document.getElementById('paso2').style.display = 'block';
   document.getElementById('step1-item').className = 'step-item done';
@@ -453,47 +425,32 @@ window.irPaso1 = function() {
   document.getElementById('step2-item').className = 'step-item';
 };
 
-// ---- FOTOS ----
 window.previsualizarFoto = function(tipo) {
   const input = document.getElementById('file-' + tipo);
   const file = input.files[0];
   if (!file) return;
-  if (file.size > 2.2 * 1024 * 1024) {
-    toast('La imagen supera 2MB. Selecciona una más pequeña.', 'err');
-    input.value = '';
-    return;
-  }
+  if (file.size > 2.2 * 1024 * 1024) { toast('La imagen supera 2MB.', 'err'); input.value = ''; return; }
   const reader = new FileReader();
-  reader.onload = function(e) {
+  reader.onload = e => {
     const preview = document.getElementById('preview-' + tipo);
-    const name = document.getElementById('name-' + tipo);
     preview.src = e.target.result;
     preview.style.display = 'block';
+    const name = document.getElementById('name-' + tipo);
     name.textContent = '✓ ' + file.name;
     name.style.display = 'block';
-    document.getElementById('box-' + tipo).style.borderColor = '#1a7a3f';
-    document.getElementById('box-' + tipo).style.background = '#f0faf4';
   };
   reader.readAsDataURL(file);
 };
 
 function obtenerBase64(tipo) {
-  const preview = document.getElementById('preview-' + tipo);
-  if (preview.style.display === 'block' && preview.src && preview.src.startsWith('data:')) {
-    return preview.src;
-  }
-  return null;
+  const p = document.getElementById('preview-' + tipo);
+  return (p.style.display === 'block' && p.src.startsWith('data:')) ? p.src : null;
 }
 
-// ---- GUARDAR ----
 window.guardarRegistro = async function() {
   const btn = document.getElementById('btnGuardar');
   btn.disabled = true;
   btn.innerHTML = '<span class="spinner"></span> Guardando...';
-
-  const foto_antes = obtenerBase64('antes');
-  const foto_despues = obtenerBase64('despues');
-
   const datos = {
     fecha_ejecucion: document.getElementById('fecha_ejecucion').value,
     empresa_ejecutora: document.getElementById('empresa_ejecutora').value.trim(),
@@ -510,35 +467,25 @@ window.guardarRegistro = async function() {
     vale_devolucion: document.getElementById('vale_devolucion').value.trim(),
     fuera_horario: document.getElementById('fuera_horario').checked,
     fuera_zona: document.getElementById('fuera_zona').checked,
-    foto_antes: foto_antes || null,
-    foto_despues: foto_despues || null,
+    foto_antes: obtenerBase64('antes'),
+    foto_despues: obtenerBase64('despues'),
     timestamp: new Date().toISOString()
   };
-
   try {
     await push(dbRef, datos);
-    toast('✓ Registro guardado correctamente en Firebase', 'ok');
-    limpiarTodo();
-    irPaso1();
-    document.getElementById('step1-item').className = 'step-item active';
-    document.getElementById('step2-item').className = 'step-item';
+    toast('✓ Registro guardado en Firebase correctamente', 'ok');
+    limpiarTodo(); irPaso1();
     document.getElementById('step3-item').className = 'step-item done';
     setTimeout(() => { document.getElementById('step3-item').className = 'step-item'; }, 3000);
-  } catch(e) {
-    toast('Error al guardar: ' + e.message, 'err');
-  }
+  } catch(e) { toast('Error: ' + e.message, 'err'); }
   btn.disabled = false;
   btn.innerHTML = '✓ Guardar registro completo';
 };
 
-// ---- LIMPIAR ----
 window.limpiarTodo = function() {
   ['fecha_ejecucion','empresa_ejecutora','hora_inicio','hora_termino','supervisor_siel',
-   'proyectista','descripcion_obra','ubicacion','zona','capataz','tipo_obra',
-   'permiso_trabajo','vale_devolucion'].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.value = '';
-  });
+   'proyectista','descripcion_obra','ubicacion','zona','capataz','tipo_obra','permiso_trabajo','vale_devolucion']
+    .forEach(id => { const el = document.getElementById(id); if(el) el.value = ''; });
   document.getElementById('fuera_horario').checked = false;
   document.getElementById('fuera_zona').checked = false;
   ['antes','despues'].forEach(t => {
@@ -546,134 +493,82 @@ window.limpiarTodo = function() {
     document.getElementById('preview-' + t).src = '';
     document.getElementById('name-' + t).style.display = 'none';
     document.getElementById('file-' + t).value = '';
-    document.getElementById('box-' + t).style.borderColor = '';
-    document.getElementById('box-' + t).style.background = '';
   });
 };
 
-// ---- ESCUCHAR FIREBASE ----
 onValue(dbRef, (snapshot) => {
   const data = snapshot.val();
-  if (!data) {
-    todosLosRegistros = [];
-  } else {
-    todosLosRegistros = Object.entries(data).map(([key, r]) => ({ key, ...r })).reverse();
-  }
+  todosLosRegistros = data ? Object.entries(data).map(([key,r]) => ({key,...r})).reverse() : [];
   document.getElementById('totalRec').textContent = todosLosRegistros.length;
   filtrarRegistros();
 });
 
-// ---- FILTRAR ----
 window.filtrarRegistros = function() {
   const q = (document.getElementById('q-texto').value || '').toLowerCase();
   const desde = document.getElementById('q-desde').value;
   const hasta = document.getElementById('q-hasta').value;
-
-  let filtrados = todosLosRegistros.filter((r, i) => {
-    const texto = [r.empresa_ejecutora, r.supervisor_siel, r.zona, r.ubicacion, r.capataz, r.tipo_obra, r.proyectista]
-      .join(' ').toLowerCase();
-    const matchTexto = !q || texto.includes(q);
-    const matchDesde = !desde || r.fecha_ejecucion >= desde;
-    const matchHasta = !hasta || r.fecha_ejecucion <= hasta;
-    return matchTexto && matchDesde && matchHasta;
+  const filtrados = todosLosRegistros.filter(r => {
+    const txt = [r.empresa_ejecutora,r.supervisor_siel,r.zona,r.ubicacion,r.capataz,r.tipo_obra,r.proyectista].join(' ').toLowerCase();
+    return (!q || txt.includes(q)) && (!desde || r.fecha_ejecucion >= desde) && (!hasta || r.fecha_ejecucion <= hasta);
   });
-
   document.getElementById('totalVisible').textContent = filtrados.length;
+  renderTabla(filtrados);
+  renderTarjetas(filtrados);
+};
+
+function renderTabla(filtrados) {
   const tbody = document.getElementById('tablaBody');
-
-  if (filtrados.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="16" class="empty-state">No hay registros que coincidan.</td></tr>';
-    return;
-  }
-
-  tbody.innerHTML = filtrados.map((r, i) => `
+  if (!filtrados.length) { tbody.innerHTML = '<tr><td colspan="16" class="empty-state">No hay registros que coincidan.</td></tr>'; return; }
+  tbody.innerHTML = filtrados.map((r,i) => `
     <tr onclick="verDetalle('${r.key}')">
-      <td>${filtrados.length - i}</td>
-      <td>${r.fecha_ejecucion || '-'}</td>
-      <td>${r.empresa_ejecutora || '-'}</td>
-      <td>${r.hora_inicio || '-'}</td>
-      <td>${r.hora_termino || '-'}</td>
-      <td>${r.supervisor_siel || '-'}</td>
-      <td>${r.proyectista || '-'}</td>
-      <td>${r.ubicacion || '-'}</td>
-      <td>${r.zona || '-'}</td>
-      <td>${r.capataz || '-'}</td>
-      <td>${r.tipo_obra || '-'}</td>
-      <td>${r.fuera_horario ? '<span class="badge-si">Sí</span>' : '<span class="badge-no">No</span>'}</td>
-      <td>${r.fuera_zona ? '<span class="badge-si">Sí</span>' : '<span class="badge-no">No</span>'}</td>
-      <td>${r.foto_antes ? `<img class="thumb" src="${r.foto_antes}" alt="antes"/>` : '<div class="no-foto">📷</div>'}</td>
-      <td>${r.foto_despues ? `<img class="thumb" src="${r.foto_despues}" alt="despues"/>` : '<div class="no-foto">📷</div>'}</td>
+      <td>${filtrados.length-i}</td>
+      <td>${r.fecha_ejecucion||'-'}</td><td>${r.empresa_ejecutora||'-'}</td>
+      <td>${r.hora_inicio||'-'}</td><td>${r.hora_termino||'-'}</td>
+      <td>${r.supervisor_siel||'-'}</td><td>${r.proyectista||'-'}</td>
+      <td>${r.ubicacion||'-'}</td><td>${r.zona||'-'}</td>
+      <td>${r.capataz||'-'}</td><td>${r.tipo_obra||'-'}</td>
+      <td>${r.fuera_horario?'<span class="badge-si">Sí</span>':'<span class="badge-no">No</span>'}</td>
+      <td>${r.fuera_zona?'<span class="badge-si">Sí</span>':'<span class="badge-no">No</span>'}</td>
+      <td>${r.foto_antes?`<img class="thumb" src="${r.foto_antes}"/>`:'<div class="no-foto">📷</div>'}</td>
+      <td>${r.foto_despues?`<img class="thumb" src="${r.foto_despues}"/>`:'<div class="no-foto">📷</div>'}</td>
       <td><button class="btn btn-outline" style="padding:4px 10px;font-size:11px;" onclick="event.stopPropagation();verDetalle('${r.key}')">Ver</button></td>
-    </tr>
-  `).join('');
-};
+    </tr>`).join('');
+}
 
-// ---- EXPORTAR EXCEL ----
-window.descargarExcel = function() {
-  const q = (document.getElementById('q-texto').value || '').toLowerCase();
-  const desde = document.getElementById('q-desde').value;
-  const hasta = document.getElementById('q-hasta').value;
-
-  let filtrados = todosLosRegistros.filter(r => {
-    const texto = [r.empresa_ejecutora, r.supervisor_siel, r.zona, r.ubicacion, r.capataz, r.tipo_obra, r.proyectista].join(' ').toLowerCase();
-    return (!q || texto.includes(q)) &&
-           (!desde || r.fecha_ejecucion >= desde) &&
-           (!hasta || r.fecha_ejecucion <= hasta);
-  });
-
-  if (filtrados.length === 0) { toast('No hay registros para exportar.', 'err'); return; }
-
-  const encabezados = [
-    'N°', 'Fecha ejecución', 'Empresa ejecutora', 'Hora inicio', 'Hora término',
-    'Supervisor SIEL', 'Proyectista Chilquinta', 'Descripción de la obra',
-    'Ubicación', 'Zona', 'Capataz', 'Tipo de obra',
-    'Permiso de trabajo', 'N° vale devolución', 'Fuera de horario', 'Fuera de zona',
-    'Foto antes (URL)', 'Foto después (URL)', 'Fecha registro'
-  ];
-
-  const filas = filtrados.map((r, i) => [
-    filtrados.length - i,
-    r.fecha_ejecucion || '',
-    r.empresa_ejecutora || '',
-    r.hora_inicio || '',
-    r.hora_termino || '',
-    r.supervisor_siel || '',
-    r.proyectista || '',
-    r.descripcion_obra || '',
-    r.ubicacion || '',
-    r.zona || '',
-    r.capataz || '',
-    r.tipo_obra || '',
-    r.permiso_trabajo || '',
-    r.vale_devolucion || '',
-    r.fuera_horario ? 'Sí' : 'No',
-    r.fuera_zona ? 'Sí' : 'No',
-    r.foto_antes ? 'Foto adjunta (base64)' : 'Sin foto',
-    r.foto_despues ? 'Foto adjunta (base64)' : 'Sin foto',
-    r.timestamp ? new Date(r.timestamp).toLocaleString('es-CL') : ''
-  ]);
-
-  // Construir CSV con BOM para Excel en español
-  const BOM = '\uFEFF';
-  const csvContent = BOM + [encabezados, ...filas]
-    .map(row => row.map(cell => {
-      const str = String(cell).replace(/"/g, '""');
-      return `"${str}"`;
-    }).join(';'))
-    .join('\r\n');
-
-  const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  const fecha = new Date().toISOString().slice(0,10);
-  a.href = url;
-  a.download = `registros_chqta_dx_${fecha}.csv`;
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
-  toast(`✓ Excel descargado (${filtrados.length} registros)`, 'ok');
-};
+function renderTarjetas(filtrados) {
+  const grid = document.getElementById('cardsGrid');
+  if (!filtrados.length) { grid.innerHTML = '<div class="empty-state" style="grid-column:1/-1">No hay registros que coincidan.</div>'; return; }
+  grid.innerHTML = filtrados.map((r,i) => `
+    <div class="reg-card" onclick="verDetalle('${r.key}')">
+      <div class="card-top">
+        <span class="c-num">Registro #${filtrados.length-i}</span>
+        <span class="c-fecha">${r.fecha_ejecucion||'-'}</span>
+      </div>
+      <div class="card-info">
+        <div class="ci"><span class="ci-label">Empresa</span><span class="ci-val">${r.empresa_ejecutora||'-'}</span></div>
+        <div class="ci"><span class="ci-label">Horario</span><span class="ci-val">${r.hora_inicio||'-'} — ${r.hora_termino||'-'}</span></div>
+        <div class="ci"><span class="ci-label">Supervisor SIEL</span><span class="ci-val">${r.supervisor_siel||'-'}</span></div>
+        <div class="ci"><span class="ci-label">Proyectista</span><span class="ci-val">${r.proyectista||'-'}</span></div>
+        <div class="ci"><span class="ci-label">Zona</span><span class="ci-val">${r.zona||'-'}</span></div>
+        <div class="ci"><span class="ci-label">Tipo obra</span><span class="ci-val">${r.tipo_obra||'-'}</span></div>
+        <div class="ci"><span class="ci-label">Ubicación</span><span class="ci-val">${r.ubicacion||'-'}</span></div>
+        <div class="ci"><span class="ci-label">Capataz</span><span class="ci-val">${r.capataz||'-'}</span></div>
+      </div>
+      <div class="card-photos">
+        <div class="cp-slot">
+          ${r.foto_antes?`<img class="cp-thumb" src="${r.foto_antes}"/>`:'<div class="cp-nofoto">📷</div>'}
+          <div class="cp-text"><strong>Antes</strong>Llegada al terreno</div>
+        </div>
+        <div class="cp-slot">
+          ${r.foto_despues?`<img class="cp-thumb" src="${r.foto_despues}"/>`:'<div class="cp-nofoto">📷</div>'}
+          <div class="cp-text"><strong>Después</strong>Término del trabajo</div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="btn-ver-card" onclick="event.stopPropagation();verDetalle('${r.key}')">Ver detalle completo</button>
+      </div>
+    </div>`).join('');
+}
 
 window.limpiarFiltros = function() {
   document.getElementById('q-texto').value = '';
@@ -682,7 +577,6 @@ window.limpiarFiltros = function() {
   filtrarRegistros();
 };
 
-// ---- MODAL DETALLE ----
 window.verDetalle = function(key) {
   const r = todosLosRegistros.find(x => x.key === key);
   if (!r) return;
@@ -690,50 +584,70 @@ window.verDetalle = function(key) {
     <div class="modal-section">
       <h4>Antecedentes generales</h4>
       <div class="modal-grid">
-        <div class="modal-field"><div class="mf-label">Fecha ejecución</div><div class="mf-val">${r.fecha_ejecucion || '-'}</div></div>
-        <div class="modal-field"><div class="mf-label">Empresa ejecutora</div><div class="mf-val">${r.empresa_ejecutora || '-'}</div></div>
-        <div class="modal-field"><div class="mf-label">Hora inicio</div><div class="mf-val">${r.hora_inicio || '-'}</div></div>
-        <div class="modal-field"><div class="mf-label">Hora término</div><div class="mf-val">${r.hora_termino || '-'}</div></div>
-        <div class="modal-field"><div class="mf-label">Supervisor SIEL</div><div class="mf-val">${r.supervisor_siel || '-'}</div></div>
-        <div class="modal-field"><div class="mf-label">Proyectista Chilquinta</div><div class="mf-val">${r.proyectista || '-'}</div></div>
-        <div class="modal-field" style="grid-column:span 2"><div class="mf-label">Descripción de la obra</div><div class="mf-val">${r.descripcion_obra || '-'}</div></div>
-        <div class="modal-field" style="grid-column:span 2"><div class="mf-label">Ubicación</div><div class="mf-val">${r.ubicacion || '-'}</div></div>
-        <div class="modal-field"><div class="mf-label">Zona</div><div class="mf-val">${r.zona || '-'}</div></div>
-        <div class="modal-field"><div class="mf-label">Capataz</div><div class="mf-val">${r.capataz || '-'}</div></div>
-        <div class="modal-field"><div class="mf-label">Tipo de obra</div><div class="mf-val">${r.tipo_obra || '-'}</div></div>
-        <div class="modal-field"><div class="mf-label">Permiso de trabajo</div><div class="mf-val">${r.permiso_trabajo || '-'}</div></div>
-        <div class="modal-field"><div class="mf-label">N° vale devolución</div><div class="mf-val">${r.vale_devolucion || '-'}</div></div>
-        <div class="modal-field"><div class="mf-label">Fuera de horario</div><div class="mf-val">${r.fuera_horario ? '<span class="badge-si">Sí</span>' : '<span class="badge-no">No</span>'}</div></div>
-        <div class="modal-field"><div class="mf-label">Fuera de zona</div><div class="mf-val">${r.fuera_zona ? '<span class="badge-si">Sí</span>' : '<span class="badge-no">No</span>'}</div></div>
+        <div class="modal-field"><div class="mf-label">Fecha ejecución</div><div class="mf-val">${r.fecha_ejecucion||'-'}</div></div>
+        <div class="modal-field"><div class="mf-label">Empresa ejecutora</div><div class="mf-val">${r.empresa_ejecutora||'-'}</div></div>
+        <div class="modal-field"><div class="mf-label">Hora inicio</div><div class="mf-val">${r.hora_inicio||'-'}</div></div>
+        <div class="modal-field"><div class="mf-label">Hora término</div><div class="mf-val">${r.hora_termino||'-'}</div></div>
+        <div class="modal-field"><div class="mf-label">Supervisor SIEL</div><div class="mf-val">${r.supervisor_siel||'-'}</div></div>
+        <div class="modal-field"><div class="mf-label">Proyectista Chilquinta</div><div class="mf-val">${r.proyectista||'-'}</div></div>
+        <div class="modal-field" style="grid-column:span 2"><div class="mf-label">Descripción de la obra</div><div class="mf-val">${r.descripcion_obra||'-'}</div></div>
+        <div class="modal-field" style="grid-column:span 2"><div class="mf-label">Ubicación</div><div class="mf-val">${r.ubicacion||'-'}</div></div>
+        <div class="modal-field"><div class="mf-label">Zona</div><div class="mf-val">${r.zona||'-'}</div></div>
+        <div class="modal-field"><div class="mf-label">Capataz</div><div class="mf-val">${r.capataz||'-'}</div></div>
+        <div class="modal-field"><div class="mf-label">Tipo de obra</div><div class="mf-val">${r.tipo_obra||'-'}</div></div>
+        <div class="modal-field"><div class="mf-label">Permiso de trabajo</div><div class="mf-val">${r.permiso_trabajo||'-'}</div></div>
+        <div class="modal-field"><div class="mf-label">N° vale devolución</div><div class="mf-val">${r.vale_devolucion||'-'}</div></div>
+        <div class="modal-field"><div class="mf-label">Fuera de horario</div><div class="mf-val">${r.fuera_horario?'<span class="badge-si">Sí</span>':'<span class="badge-no">No</span>'}</div></div>
+        <div class="modal-field"><div class="mf-label">Fuera de zona</div><div class="mf-val">${r.fuera_zona?'<span class="badge-si">Sí</span>':'<span class="badge-no">No</span>'}</div></div>
       </div>
     </div>
     <div class="modal-section">
       <h4>Trazabilidad fotográfica</h4>
       <div class="modal-photos">
         <div class="modal-photo-box">
-          ${r.foto_antes
-            ? `<img src="${r.foto_antes}" alt="Antes" />`
-            : `<div class="no-photo-box"><span style="font-size:28px">📷</span><span>Sin fotografía</span></div>`}
+          ${r.foto_antes?`<img src="${r.foto_antes}" alt="Antes"/>`:'<div class="no-photo-box"><span style="font-size:26px">📷</span><span>Sin fotografía</span></div>'}
           <div class="mp-label">📷 N°1 — Antes de intervención</div>
         </div>
         <div class="modal-photo-box">
-          ${r.foto_despues
-            ? `<img src="${r.foto_despues}" alt="Después" />`
-            : `<div class="no-photo-box"><span style="font-size:28px">📷</span><span>Sin fotografía</span></div>`}
+          ${r.foto_despues?`<img src="${r.foto_despues}" alt="Después"/>`:'<div class="no-photo-box"><span style="font-size:26px">📷</span><span>Sin fotografía</span></div>'}
           <div class="mp-label">📷 N°2 — Después de intervención</div>
         </div>
       </div>
-    </div>
-  `;
+    </div>`;
   document.getElementById('modalOverlay').classList.add('open');
 };
 
 window.cerrarModal = function(e) {
-  if (e.target === document.getElementById('modalOverlay')) {
-    document.getElementById('modalOverlay').classList.remove('open');
-  }
+  if (e.target === document.getElementById('modalOverlay')) document.getElementById('modalOverlay').classList.remove('open');
 };
 
+window.descargarExcel = function() {
+  const q = (document.getElementById('q-texto').value||'').toLowerCase();
+  const desde = document.getElementById('q-desde').value;
+  const hasta = document.getElementById('q-hasta').value;
+  const filtrados = todosLosRegistros.filter(r => {
+    const txt = [r.empresa_ejecutora,r.supervisor_siel,r.zona,r.ubicacion,r.capataz,r.tipo_obra,r.proyectista].join(' ').toLowerCase();
+    return (!q||txt.includes(q))&&(!desde||r.fecha_ejecucion>=desde)&&(!hasta||r.fecha_ejecucion<=hasta);
+  });
+  if (!filtrados.length) { toast('No hay registros para exportar.', 'err'); return; }
+  const enc = ['N°','Fecha ejecución','Empresa ejecutora','Hora inicio','Hora término','Supervisor SIEL','Proyectista Chilquinta','Descripción de la obra','Ubicación','Zona','Capataz','Tipo de obra','Permiso de trabajo','N° vale devolución','Fuera de horario','Fuera de zona','Foto antes','Foto después','Fecha registro'];
+  const filas = filtrados.map((r,i) => [
+    filtrados.length-i, r.fecha_ejecucion||'', r.empresa_ejecutora||'', r.hora_inicio||'', r.hora_termino||'',
+    r.supervisor_siel||'', r.proyectista||'', r.descripcion_obra||'', r.ubicacion||'', r.zona||'',
+    r.capataz||'', r.tipo_obra||'', r.permiso_trabajo||'', r.vale_devolucion||'',
+    r.fuera_horario?'Sí':'No', r.fuera_zona?'Sí':'No',
+    r.foto_antes?'Foto adjunta':'Sin foto', r.foto_despues?'Foto adjunta':'Sin foto',
+    r.timestamp?new Date(r.timestamp).toLocaleString('es-CL'):''
+  ]);
+  const BOM = '\uFEFF';
+  const csv = BOM + [enc,...filas].map(row => row.map(c => `"${String(c).replace(/"/g,'""')}"`).join(';')).join('\r\n');
+  const blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = `registros_chqta_dx_${new Date().toISOString().slice(0,10)}.csv`;
+  document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
+  toast(`✓ Excel descargado (${filtrados.length} registros)`, 'ok');
+};
 </script>
 </body>
 </html>
