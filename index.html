@@ -109,9 +109,10 @@ hr.div { border: none; border-top: 1px solid #eee; margin: 14px 0; }
 #toast.err { background: #b91c1c; }
 
 /* CONSULTAS */
-.search-bar { display: grid; grid-template-columns: 1fr 1fr 1fr auto auto; gap: 10px; align-items: end; margin-bottom: 16px; }
+.search-bar { display: grid; grid-template-columns: 1fr 1fr 1fr auto; gap: 10px; align-items: end; margin-bottom: 12px; }
 .btn-excel { background: #1a7a3f; color: #fff; }
 .btn-excel:hover { background: #145e30; }
+.export-row { display: flex; justify-content: flex-end; margin-bottom: 12px; }
 .rec-count { font-size: 12px; color: var(--gris-label); margin-bottom: 10px; }
 .rec-count strong { color: var(--rojo); }
 .table-wrap { overflow-x: auto; }
@@ -349,7 +350,10 @@ tbody td { padding: 8px 10px; vertical-align: middle; }
           <input type="date" id="q-hasta" onchange="filtrarRegistros()" />
         </div>
         <button class="btn btn-outline" onclick="limpiarFiltros()">✕ Limpiar</button>
+      </div>
+      <div class="export-row">
         <button class="btn btn-excel" onclick="descargarExcel()">⬇ Descargar Excel</button>
+      </div>
       </div>
       <div class="rec-count">Mostrando <strong id="totalVisible">0</strong> de <strong id="totalRec">0</strong> registros</div>
       <div class="table-wrap">
