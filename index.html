@@ -281,6 +281,285 @@ table.reg-table tbody td{padding:7px 10px;vertical-align:middle;}
 .deadline-banner.amarillo{background:#fff8e1;color:#b45309;border:1px solid #fbd97a;}
 .deadline-banner.rojo{background:#fdecea;color:var(--rojo);border:1px solid #f5c0bc;}
 
+/* ============================================================
+   FORMULARIO PREMIUM — NUEVO DISEÑO
+   ============================================================ */
+
+/* Selector de flujo mejorado */
+.flujo-selector-wrap{
+  display:grid;grid-template-columns:1fr 1fr;gap:14px;
+  margin-bottom:20px;
+}
+@media(max-width:600px){.flujo-selector-wrap{grid-template-columns:1fr;}}
+.flujo-card{
+  position:relative;overflow:hidden;
+  padding:20px;border-radius:14px;cursor:pointer;
+  border:2px solid transparent;
+  transition:all 0.22s cubic-bezier(.22,1,.36,1);
+  display:flex;align-items:center;gap:16px;
+  background:#f8f9fb;
+}
+.flujo-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,currentColor,transparent);
+  opacity:0;transition:opacity 0.2s;
+}
+.flujo-card.insp-card{--fc:#1565C0;}
+.flujo-card.hall-card{--fc:#e65100;}
+.flujo-card:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,0.1);}
+.flujo-card.selected{
+  border-color:var(--fc);
+  background:color-mix(in srgb,var(--fc) 6%,white);
+  box-shadow:0 6px 24px color-mix(in srgb,var(--fc) 25%,transparent);
+}
+.flujo-card.selected::before{opacity:1;}
+.flujo-card-icon{
+  width:52px;height:52px;border-radius:14px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;
+  background:#e0e6ee;
+  transition:all 0.2s;
+}
+.flujo-card.selected .flujo-card-icon{
+  background:var(--fc);
+  box-shadow:0 4px 14px color-mix(in srgb,var(--fc) 40%,transparent);
+}
+.flujo-card-title{font-size:14px;font-weight:800;color:#222;margin-bottom:4px;transition:color 0.2s;}
+.flujo-card.selected .flujo-card-title{color:var(--fc);}
+.flujo-card-desc{font-size:11.5px;color:#888;line-height:1.5;}
+.flujo-radio{
+  width:18px;height:18px;border-radius:50%;border:2px solid #ccc;
+  flex-shrink:0;margin-left:auto;
+  display:flex;align-items:center;justify-content:center;
+  transition:all 0.2s;background:#fff;
+}
+.flujo-card.selected .flujo-radio{border-color:var(--fc);background:var(--fc);}
+.flujo-radio::after{
+  content:'';width:6px;height:6px;border-radius:50%;background:#fff;
+  opacity:0;transition:opacity 0.15s;
+}
+.flujo-card.selected .flujo-radio::after{opacity:1;}
+
+/* Separador de sección */
+.form-section-divider{
+  display:flex;align-items:center;gap:12px;
+  margin:20px 0 14px;
+}
+.form-section-divider .fsd-line{flex:1;height:1px;background:linear-gradient(90deg,#e0e0e0,transparent);}
+.form-section-divider .fsd-label{
+  font-size:10px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;
+  color:#aaa;white-space:nowrap;display:flex;align-items:center;gap:6px;
+}
+
+/* Campos premium */
+.field-group label.fl{
+  font-size:10.5px;font-weight:700;color:#6b7280;
+  text-transform:uppercase;letter-spacing:0.07em;
+  margin-bottom:5px;display:flex;align-items:center;gap:4px;
+}
+input[type=text],input[type=date],input[type=time],input[type=number],select,textarea{
+  border:1.5px solid #e2e8f0 !important;
+  border-radius:8px !important;padding:9px 12px !important;
+  font-size:13px;background:#fff;
+  box-shadow:0 1px 3px rgba(0,0,0,0.04) inset;
+  transition:all 0.18s !important;
+}
+input:focus,select:focus,textarea:focus{
+  border-color:var(--azul) !important;
+  box-shadow:0 0 0 3px rgba(21,101,192,0.1) !important;
+  background:#fafcff !important;
+}
+
+/* Banner de sección de flujo */
+.flujo-section-banner{
+  display:flex;align-items:center;gap:12px;
+  padding:12px 16px;border-radius:10px;
+  margin:16px 0 14px;font-size:12.5px;font-weight:700;
+  letter-spacing:0.04em;
+}
+.flujo-section-banner.azul{
+  background:linear-gradient(90deg,#e3f0fb,#f0f7ff);
+  border-left:4px solid #1565C0;color:#1565C0;
+  box-shadow:0 2px 8px rgba(21,101,192,0.08);
+}
+.flujo-section-banner.naranja{
+  background:linear-gradient(90deg,#fff3e0,#fff8f0);
+  border-left:4px solid #e65100;color:#e65100;
+  box-shadow:0 2px 8px rgba(230,81,0,0.08);
+}
+.flujo-section-banner.verde{
+  background:linear-gradient(90deg,#e8f5e9,#f0fff4);
+  border-left:4px solid #2e7d32;color:#2e7d32;
+  box-shadow:0 2px 8px rgba(46,125,50,0.08);
+}
+
+/* Info box */
+.info-box{
+  display:flex;gap:12px;align-items:flex-start;
+  padding:12px 16px;border-radius:10px;
+  margin-bottom:14px;font-size:12.5px;line-height:1.6;
+}
+.info-box.amarillo{background:#fffbeb;border:1px solid #fde68a;color:#78350f;}
+.info-box.azul{background:#eff6ff;border:1px solid #bfdbfe;color:#1e40af;}
+.info-box.naranja{background:#fff7ed;border:1px solid #fed7aa;color:#7c2d12;}
+.info-box-icon{font-size:18px;flex-shrink:0;margin-top:1px;}
+
+/* Card del formulario mejorado */
+.form-card{
+  background:#fff;border-radius:14px;
+  box-shadow:0 2px 16px rgba(0,0,0,0.07),0 0 0 1px rgba(0,0,0,0.04);
+  overflow:hidden;margin-bottom:16px;
+}
+.form-card-header{
+  padding:14px 20px;
+  display:flex;align-items:center;gap:10px;
+  border-bottom:1px solid #f0f0f0;
+}
+.form-card-header.azul{background:linear-gradient(90deg,#1565C0,#1976D2);}
+.form-card-header.verde{background:linear-gradient(90deg,#1a7a3f,#2e7d32);}
+.form-card-header.naranja{background:linear-gradient(90deg,#bf360c,#e64a19);}
+.form-card-header h3{font-size:12px;font-weight:800;color:#fff;letter-spacing:0.07em;text-transform:uppercase;}
+.form-card-header .step-pill{
+  background:rgba(255,255,255,0.2);color:#fff;
+  border-radius:20px;padding:2px 10px;font-size:10px;font-weight:700;
+  letter-spacing:0.06em;
+}
+.form-card-body{padding:20px 22px;}
+
+/* Steps mejorados */
+.steps-premium{
+  display:flex;align-items:center;
+  background:#fff;border-radius:12px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.06);
+  padding:12px 20px;margin-bottom:18px;gap:0;
+}
+.step-premium{
+  display:flex;align-items:center;gap:10px;flex:1;
+  position:relative;cursor:default;
+}
+.step-premium:not(:last-child)::after{
+  content:'';position:absolute;left:calc(100% - 20px);top:50%;transform:translateY(-50%);
+  width:40px;height:1px;background:#ddd;z-index:0;
+}
+.sp-num{
+  width:28px;height:28px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:800;border:2px solid #ddd;
+  color:#bbb;background:#fff;transition:all 0.2s;z-index:1;position:relative;
+}
+.step-premium.active .sp-num{background:var(--azul);border-color:var(--azul);color:#fff;box-shadow:0 2px 8px rgba(21,101,192,0.4);}
+.step-premium.done .sp-num{background:var(--verde);border-color:var(--verde);color:#fff;}
+.sp-label{font-size:12px;font-weight:600;color:#bbb;transition:color 0.2s;}
+.step-premium.active .sp-label{color:var(--azul);font-weight:700;}
+.step-premium.done .sp-label{color:var(--verde);}
+
+/* GPS panel */
+.gps-panel{
+  background:linear-gradient(135deg,#f0f4fa,#e8eeff);
+  border:1.5px solid #c5d8f0;border-radius:12px;
+  padding:16px;margin-top:16px;
+}
+.gps-panel-header{font-size:12px;font-weight:700;color:#334e80;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.gps-info-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+
+/* Photo boxes mejoradas */
+.photo-box-premium{
+  border:2px dashed #d1d5db;border-radius:12px;
+  padding:16px;text-align:center;cursor:pointer;
+  transition:all 0.2s;position:relative;min-height:140px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:#fafafa;
+}
+.photo-box-premium:hover{border-color:var(--azul);background:#f0f7ff;}
+.photo-box-premium.has-photo{border-style:solid;border-color:#a5d6a7;background:#f9fff9;}
+.photo-box-premium input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
+.pbp-icon{font-size:28px;margin-bottom:8px;transition:transform 0.2s;}
+.photo-box-premium:hover .pbp-icon{transform:scale(1.1);}
+.pbp-num{
+  position:absolute;top:8px;left:10px;
+  background:var(--azul);color:#fff;
+  border-radius:20px;padding:2px 9px;
+  font-size:10px;font-weight:800;
+}
+.pbp-label{font-size:12px;font-weight:700;color:#555;margin-bottom:3px;}
+.pbp-sub{font-size:10.5px;color:#9ca3af;}
+.photo-preview-premium{
+  width:100%;max-height:150px;object-fit:cover;
+  border-radius:8px;margin-top:10px;display:none;
+  box-shadow:0 2px 8px rgba(0,0,0,0.12);
+}
+.photo-caption{
+  font-size:11px;color:#2e7d32;font-weight:600;
+  margin-top:6px;display:none;
+}
+
+/* Actions premium */
+.form-actions{
+  display:flex;justify-content:space-between;align-items:center;
+  padding-top:18px;margin-top:8px;
+  border-top:1px solid #f0f0f0;flex-wrap:wrap;gap:10px;
+}
+.btn-next{
+  background:linear-gradient(135deg,#1565C0,#1976D2);
+  color:#fff;border:none;border-radius:10px;
+  padding:11px 28px;font-size:13.5px;font-weight:700;
+  cursor:pointer;display:inline-flex;align-items:center;gap:8px;
+  box-shadow:0 4px 14px rgba(21,101,192,0.4);
+  transition:all 0.18s;font-family:inherit;
+}
+.btn-next:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(21,101,192,0.5);}
+.btn-back{
+  background:#fff;color:#555;
+  border:1.5px solid #e0e0e0;border-radius:10px;
+  padding:10px 22px;font-size:13px;font-weight:600;
+  cursor:pointer;display:inline-flex;align-items:center;gap:8px;
+  transition:all 0.15s;font-family:inherit;
+}
+.btn-back:hover{background:#f5f5f5;border-color:#ccc;}
+.btn-save-final{
+  background:linear-gradient(135deg,#1a7a3f,#2e7d32);
+  color:#fff;border:none;border-radius:10px;
+  padding:12px 32px;font-size:14px;font-weight:700;
+  cursor:pointer;display:inline-flex;align-items:center;gap:8px;
+  box-shadow:0 4px 16px rgba(26,122,63,0.45);
+  transition:all 0.18s;font-family:inherit;
+}
+.btn-save-final:hover{transform:translateY(-1px);box-shadow:0 6px 22px rgba(26,122,63,0.55);}
+
+/* Campo con ícono */
+.field-with-icon{position:relative;}
+.field-with-icon .fi-icon{
+  position:absolute;left:10px;top:50%;transform:translateY(-50%);
+  font-size:14px;pointer-events:none;z-index:1;
+}
+.field-with-icon input,.field-with-icon select{padding-left:32px !important;}
+
+/* Badge flujo en la card */
+.flujo-badge-header{
+  display:inline-flex;align-items:center;gap:5px;
+  border-radius:20px;padding:3px 11px;
+  font-size:10px;font-weight:800;letter-spacing:0.06em;
+  margin-left:auto;
+}
+.flujo-badge-header.insp{background:rgba(255,255,255,0.2);color:#fff;}
+.flujo-badge-header.hall{background:rgba(255,165,0,0.2);color:#ffcc80;}
+
+/* Alerta estado abierto */
+.hallazgo-estado-alert{
+  background:linear-gradient(90deg,#fff8e1,#fffbf0);
+  border:1.5px solid #ffcc02;border-radius:12px;
+  padding:14px 18px;margin-bottom:16px;
+  display:flex;align-items:flex-start;gap:14px;
+}
+.hea-icon{
+  width:40px;height:40px;border-radius:10px;
+  background:linear-gradient(135deg,#f59e0b,#d97706);
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;flex-shrink:0;
+}
+.hea-title{font-size:13px;font-weight:800;color:#78350f;margin-bottom:3px;}
+.hea-desc{font-size:12px;color:#92400e;line-height:1.5;}
+
 /* TABS CONSULTA */
 .consult-tabs{display:flex;border-bottom:2px solid var(--gris-borde);margin-bottom:14px;}
 .c-tab{padding:9px 18px;font-size:13px;font-weight:600;cursor:pointer;color:var(--gris-label);border-bottom:2px solid transparent;margin-bottom:-2px;transition:color 0.15s,border-color 0.15s;}
@@ -1440,44 +1719,68 @@ window.ingresarComo = function(tipo){
 
   <!-- PASO 1 MAN -->
   <div id="man-paso1">
-    <!-- Banner selector de flujo -->
-    <div id="man-flujo-selector" style="display:flex;gap:12px;margin-bottom:16px;flex-wrap:wrap;">
-      <div id="flujo-btn-insp" onclick="manSetFlujo('inspeccion')"
-        style="flex:1;min-width:200px;padding:16px 20px;border-radius:12px;cursor:pointer;border:2px solid #1565C0;background:#e3f0fb;display:flex;align-items:center;gap:14px;transition:all 0.15s;">
-        <div style="width:48px;height:48px;border-radius:10px;background:#1565C0;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;">🔍</div>
-        <div>
-          <div style="font-weight:800;font-size:14px;color:#1565C0;">Actividad de Inspección / Rutinaria</div>
-          <div style="font-size:12px;color:#555;margin-top:3px;">Inspección visual, drone, cámara 360°, recorridos, mediciones, requerimientos SEC</div>
+
+    <!-- Selector de flujo premium -->
+    <div class="flujo-selector-wrap" id="man-flujo-selector">
+      <div class="flujo-card insp-card" id="flujo-btn-insp" onclick="manSetFlujo('inspeccion')" style="--fc:#1565C0;">
+        <div class="flujo-card-icon">🔍</div>
+        <div style="flex:1;">
+          <div class="flujo-card-title">Inspección / Rutinaria</div>
+          <div class="flujo-card-desc">Inspección visual, drone, cámara 360°, recorridos, mediciones, requerimientos SEC</div>
         </div>
+        <div class="flujo-radio"></div>
       </div>
-      <div id="flujo-btn-hall" onclick="manSetFlujo('hallazgo')"
-        style="flex:1;min-width:200px;padding:16px 20px;border-radius:12px;cursor:pointer;border:2px solid #ddd;background:#fff;display:flex;align-items:center;gap:14px;transition:all 0.15s;">
-        <div style="width:48px;height:48px;border-radius:10px;background:#e0e0e0;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;">⚠️</div>
-        <div>
-          <div style="font-weight:800;font-size:14px;color:#555;">Mantenimiento / Hallazgo</div>
-          <div style="font-size:12px;color:#888;margin-top:3px;">Correctivos, anomalías, requerimientos urgentes, riesgos en terreno</div>
+      <div class="flujo-card hall-card" id="flujo-btn-hall" onclick="manSetFlujo('hallazgo')" style="--fc:#e65100;">
+        <div class="flujo-card-icon">⚠️</div>
+        <div style="flex:1;">
+          <div class="flujo-card-title">Mantenimiento / Hallazgo</div>
+          <div class="flujo-card-desc">Correctivos, anomalías, requerimientos urgentes, riesgos en terreno</div>
         </div>
+        <div class="flujo-radio"></div>
       </div>
     </div>
 
-    <div class="card">
-      <div class="card-header azul" id="man-card-header"><span class="step-badge">PASO 1</span> <span id="man-header-txt">ANTECEDENTES ACTIVIDAD</span></div>
-      <div class="card-body">
+    <div class="form-card">
+      <div class="form-card-header azul" id="man-card-header">
+        <span class="form-card-header" style="width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,0.25);display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;flex-shrink:0;">1</span>
+        <h3 id="man-header-txt">ANTECEDENTES ACTIVIDAD</h3>
+        <span id="man-flujo-badge" class="flujo-badge-header insp" style="display:none;"></span>
+      </div>
+      <div class="form-card-body">
 
         <!-- ─── CAMPOS COMUNES ─── -->
-        <div class="field-row col-3">
-          <div class="field-group"><label class="fl">Fecha actividad <span class="req">*</span></label><input type="date" id="man-fecha"/></div>
-          <div class="field-group"><label class="fl">Hora inicio</label><input type="time" id="man-hora-ini"/></div>
-          <div class="field-group"><label class="fl">Hora término</label><input type="time" id="man-hora-fin"/></div>
+        <div class="form-section-divider">
+          <div class="fsd-label">📅 Fecha y horario</div>
+          <div class="fsd-line"></div>
         </div>
         <div class="field-row col-3">
-          <div class="field-group"><label class="fl">Tipo de actividad <span class="req">*</span></label>
+          <div class="field-group">
+            <label class="fl">📅 Fecha actividad <span class="req">*</span></label>
+            <input type="date" id="man-fecha"/>
+          </div>
+          <div class="field-group">
+            <label class="fl">🕐 Hora inicio</label>
+            <input type="time" id="man-hora-ini"/>
+          </div>
+          <div class="field-group">
+            <label class="fl">🕕 Hora término</label>
+            <input type="time" id="man-hora-fin"/>
+          </div>
+        </div>
+
+        <div class="form-section-divider">
+          <div class="fsd-label">📋 Clasificación</div>
+          <div class="fsd-line"></div>
+        </div>
+        <div class="field-row col-3">
+          <div class="field-group">
+            <label class="fl">🏷️ Tipo de actividad <span class="req">*</span></label>
             <select id="man-tipo" onchange="manTipoChange()">
               <option value="">— Seleccionar tipo —</option>
-              <!-- opciones dinámicas según flujo -->
             </select>
           </div>
-          <div class="field-group"><label class="fl">Zona <span class="req">*</span></label>
+          <div class="field-group">
+            <label class="fl">🗺️ Zona <span class="req">*</span></label>
             <select id="man-zona" onchange="window.manZonaChange()">
               <option value="">— Seleccionar —</option>
               <option>Aconcagua</option><option>Quillota</option><option>Marga Marga</option>
@@ -1485,7 +1788,7 @@ window.ingresarComo = function(tipo){
             </select>
           </div>
           <div class="field-group">
-            <label class="fl">Responsable / Inspector <span class="req">*</span></label>
+            <label class="fl">👤 Responsable / Inspector <span class="req">*</span></label>
             <div class="tec-select-wrap">
               <select id="man-responsable" style="width:100%;">
                 <option value="">— Selecciona zona primero —</option>
@@ -1494,23 +1797,42 @@ window.ingresarComo = function(tipo){
             </div>
           </div>
         </div>
-        <div class="field-row col-2">
-          <div class="field-group"><label class="fl">Ubicación / Dirección / Sector</label><input type="text" id="man-ubicacion" placeholder="Calle, alimentador, sector, coordenada…"/></div>
-          <div class="field-group"><label class="fl">Elemento / Equipo inspeccionado</label><input type="text" id="man-equipo" placeholder="Transformador, poste, tramo de red…"/></div>
+
+        <div class="form-section-divider">
+          <div class="fsd-label">📍 Localización y equipo</div>
+          <div class="fsd-line"></div>
         </div>
         <div class="field-row col-2">
-          <div class="field-group"><label class="fl">N° referencia (OT / SEC / interno)</label><input type="text" id="man-referencia" placeholder="N° orden, expediente, referencia interna…"/></div>
-          <div class="field-group"><label class="fl">Cuadrilla / Vehículo</label><input type="text" id="man-cuadrilla" placeholder="Ej: Cuadrilla Nº3 — PPU AB1234"/></div>
+          <div class="field-group">
+            <label class="fl">📍 Ubicación / Dirección / Sector</label>
+            <input type="text" id="man-ubicacion" placeholder="Calle, alimentador, sector, coordenada…"/>
+          </div>
+          <div class="field-group">
+            <label class="fl">⚡ Elemento / Equipo inspeccionado</label>
+            <input type="text" id="man-equipo" placeholder="Transformador, poste, tramo de red…"/>
+          </div>
+        </div>
+        <div class="field-row col-2">
+          <div class="field-group">
+            <label class="fl">🔢 N° referencia (OT / SEC / interno)</label>
+            <input type="text" id="man-referencia" placeholder="N° orden, expediente, referencia interna…"/>
+          </div>
+          <div class="field-group">
+            <label class="fl">🚗 Cuadrilla / Vehículo</label>
+            <input type="text" id="man-cuadrilla" placeholder="Ej: Cuadrilla Nº3 — PPU AB1234"/>
+          </div>
         </div>
 
-        <!-- ─── SECCIÓN RESULTADO INSPECCIÓN (flujo inspección) ─── -->
+        <!-- ─── SECCIÓN RESULTADO INSPECCIÓN ─── -->
         <div id="man-sec-insp" style="display:none;">
-          <div style="background:linear-gradient(90deg,#e3f0fb,#f0f7ff);border-left:4px solid #1565C0;border-radius:0 8px 8px 0;padding:12px 16px;margin:14px 0 10px;font-size:12px;font-weight:700;color:#1565C0;letter-spacing:0.05em;">
-            🔍 RESULTADO DE LA INSPECCIÓN
+          <div class="flujo-section-banner azul">
+            <span style="font-size:20px;">🔍</span>
+            RESULTADO DE LA INSPECCIÓN
           </div>
           <div class="field-row col-2">
-            <div class="field-group"><label class="fl">Estado general observado</label>
-              <select id="man-estado">
+            <div class="field-group">
+              <label class="fl">Estado general observado</label>
+              <select id="man-estado" onchange="document.getElementById('man-alerta-insp').style.display=(this.value==='anomalia'||this.value==='urgente')?'flex':'none'">
                 <option value="">— Seleccionar —</option>
                 <option value="normal">✅ Normal — Sin anomalías</option>
                 <option value="observacion">👁️ Con observación menor</option>
@@ -1518,38 +1840,42 @@ window.ingresarComo = function(tipo){
                 <option value="urgente">🔴 Urgente — Requiere acción inmediata</option>
               </select>
             </div>
-            <div class="field-group"><label class="fl">N° de elementos inspeccionados</label>
-              <input type="number" id="man-n-elem" min="1" placeholder="Ej: 12 postes, 3 transformadores…"/>
+            <div class="field-group">
+              <label class="fl">N° de elementos inspeccionados</label>
+              <input type="number" id="man-n-elem" min="1" placeholder="Ej: 12"/>
             </div>
           </div>
-          <!-- Banner que aparece si selecciona anomalía/urgente -->
-          <div id="man-alerta-insp" style="display:none;background:#fff8e1;border:1px solid #ffc107;border-radius:8px;padding:10px 14px;font-size:12px;color:#856404;margin-bottom:10px;">
-            ⚠️ Al haber detectado una anomalía o urgencia, considera también registrarla como <strong>Mantenimiento / Hallazgo</strong> para dar trazabilidad correctiva.
+          <div id="man-alerta-insp" class="info-box amarillo" style="display:none;">
+            <span class="info-box-icon">⚠️</span>
+            <div>Al detectar una <strong>anomalía o urgencia</strong>, considera también registrarla como <strong>Mantenimiento / Hallazgo</strong> para darle trazabilidad correctiva completa.</div>
           </div>
           <div class="field-row">
-            <div class="field-group"><label class="fl">Observaciones de la inspección</label>
-              <textarea id="man-insp-obs" rows="3" placeholder="Describe el estado general, lo que se inspeccionó, condiciones del terreno, observaciones relevantes…"></textarea>
+            <div class="field-group">
+              <label class="fl">Observaciones de la inspección</label>
+              <textarea id="man-insp-obs" rows="3" placeholder="Describe el estado general, lo que se inspeccionó, condiciones del terreno, observaciones relevantes…" style="resize:vertical;"></textarea>
             </div>
           </div>
           <div class="field-row">
-            <div class="field-group"><label class="fl">Próximas acciones / Derivaciones</label>
-              <textarea id="man-insp-acciones" rows="2" placeholder="¿Requiere nueva inspección? ¿Se derivan trabajos? ¿Se informa a supervisor?"></textarea>
+            <div class="field-group">
+              <label class="fl">Próximas acciones / Derivaciones</label>
+              <textarea id="man-insp-acciones" rows="2" placeholder="¿Requiere nueva inspección? ¿Se derivan trabajos? ¿Se informa a supervisor?" style="resize:vertical;"></textarea>
             </div>
           </div>
         </div>
 
-        <!-- ─── SECCIÓN HALLAZGO / MANTENIMIENTO (flujo correctivo) ─── -->
+        <!-- ─── SECCIÓN HALLAZGO / MANTENIMIENTO ─── -->
         <div id="man-sec-hall" style="display:none;">
-          <div style="background:linear-gradient(90deg,#fff3e0,#fff8f0);border-left:4px solid #e65100;border-radius:0 8px 8px 0;padding:12px 16px;margin:14px 0 10px;font-size:12px;font-weight:700;color:#e65100;letter-spacing:0.05em;">
-            ⚠️ DETECCIÓN DEL HALLAZGO — el registro quedará <strong>ABIERTO</strong> hasta su cierre
+          <div class="hallazgo-estado-alert">
+            <div class="hea-icon">⚠️</div>
+            <div>
+              <div class="hea-title">Detección de hallazgo — Registro quedará ABIERTO</div>
+              <div class="hea-desc"><strong>Flujo en dos etapas:</strong> Registras la detección ahora (estado <strong>Abierto</strong>). Una vez ejecutado el trabajo, buscas este registro en <strong>Consultar</strong> y lo cierras con las acciones realizadas.</div>
+            </div>
           </div>
-          <!-- Info de ciclo de vida -->
-          <div style="background:#fff8e1;border:1px solid #ffe082;border-radius:8px;padding:10px 14px;font-size:12px;color:#6d4c00;margin-bottom:12px;display:flex;gap:10px;align-items:flex-start;">
-            <span style="font-size:18px;flex-shrink:0;">📋</span>
-            <div><strong>Flujo en dos etapas:</strong> Ahora registras la detección del hallazgo (queda <strong>Abierto</strong>). Cuando el trabajo esté ejecutado, buscas el registro en "Consultar" y lo <strong>Cierras</strong> con el resultado, acciones y materiales.</div>
-          </div>
+
           <div class="field-row col-2">
-            <div class="field-group"><label class="fl">Criticidad <span class="req">*</span></label>
+            <div class="field-group">
+              <label class="fl">🚨 Criticidad <span class="req">*</span></label>
               <select id="man-criticidad">
                 <option value="">— Seleccionar nivel —</option>
                 <option value="baja">🟡 Baja — Observación menor</option>
@@ -1558,7 +1884,8 @@ window.ingresarComo = function(tipo){
                 <option value="critica">🚨 Crítica — Riesgo inmediato para personas / red</option>
               </select>
             </div>
-            <div class="field-group"><label class="fl">¿Se puede resolver ahora mismo?</label>
+            <div class="field-group">
+              <label class="fl">¿Se puede resolver ahora mismo?</label>
               <select id="man-resolucion-inmediata" onchange="manResolucionInmediataChange()">
                 <option value="">— Seleccionar —</option>
                 <option value="no">❌ No — Solo detección, queda pendiente</option>
@@ -1567,43 +1894,50 @@ window.ingresarComo = function(tipo){
             </div>
           </div>
           <div class="field-row">
-            <div class="field-group"><label class="fl">Descripción del hallazgo / falla detectada <span class="req">*</span></label>
-              <textarea id="man-hall-hallazgos" rows="3" placeholder="Describe con detalle: qué se encontró, en qué estado, qué elemento, en qué dirección exacta…"></textarea>
+            <div class="field-group">
+              <label class="fl">Descripción del hallazgo / falla detectada <span class="req">*</span></label>
+              <textarea id="man-hall-hallazgos" rows="3" placeholder="Describe con detalle: qué se encontró, en qué estado, qué elemento, en qué dirección exacta…" style="resize:vertical;"></textarea>
             </div>
           </div>
-          <!-- Campos de cierre — solo visibles si se resuelve inmediatamente -->
+
+          <!-- Campos de cierre inmediato -->
           <div id="man-cierre-inmediato" style="display:none;">
-            <div style="background:linear-gradient(90deg,#e8f5e9,#f0fff4);border-left:4px solid #2e7d32;border-radius:0 8px 8px 0;padding:10px 16px;margin:10px 0 10px;font-size:12px;font-weight:700;color:#2e7d32;">
-              ✅ CIERRE INMEDIATO — Completa el resultado del trabajo
+            <div class="flujo-section-banner verde">
+              <span style="font-size:20px;">✅</span>
+              CIERRE INMEDIATO — Completa el resultado del trabajo
             </div>
             <div class="field-row col-2">
-              <div class="field-group"><label class="fl">Acciones ejecutadas en terreno</label>
-                <textarea id="man-hall-acciones" rows="3" placeholder="¿Qué se hizo? Cambio de material, retiro, desconexión, derivación…"></textarea>
+              <div class="field-group">
+                <label class="fl">Acciones ejecutadas en terreno</label>
+                <textarea id="man-hall-acciones" rows="3" placeholder="¿Qué se hizo? Cambio de material, retiro, desconexión, derivación…" style="resize:vertical;"></textarea>
               </div>
-              <div class="field-group"><label class="fl">Materiales utilizados</label>
-                <textarea id="man-materiales" rows="3" placeholder="Lista materiales usados: Ej: 1 fusible NH 100A, 2 conectores CCAP…"></textarea>
+              <div class="field-group">
+                <label class="fl">Materiales utilizados</label>
+                <textarea id="man-materiales" rows="3" placeholder="Lista materiales usados: Ej: 1 fusible NH 100A, 2 conectores CCAP…" style="resize:vertical;"></textarea>
               </div>
             </div>
             <div class="field-row col-2">
-              <div class="field-group"><label class="fl">Responsable del cierre</label>
+              <div class="field-group">
+                <label class="fl">Responsable del cierre</label>
                 <input type="text" id="man-responsable-cierre" placeholder="Técnico que ejecutó el trabajo"/>
               </div>
-              <div class="field-group"><label class="fl">Fecha/hora de cierre</label>
+              <div class="field-group">
+                <label class="fl">Fecha/hora de cierre</label>
                 <input type="datetime-local" id="man-fecha-cierre"/>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- ─── SI NO SE HA ELEGIDO FLUJO ─── -->
-        <div id="man-sec-vacio" style="text-align:center;padding:24px;color:#bbb;font-size:13px;">
-          <div style="font-size:32px;margin-bottom:8px;">☝️</div>
-          Selecciona el tipo de actividad arriba para ver los campos correspondientes
+        <!-- Vacío (sin flujo elegido) -->
+        <div id="man-sec-vacio" style="text-align:center;padding:36px 24px;color:#bbb;font-size:13px;">
+          <div style="font-size:40px;margin-bottom:10px;opacity:0.5;">☝️</div>
+          <div style="font-weight:600;color:#ccc;">Selecciona el tipo de actividad arriba para continuar</div>
         </div>
 
-        <div class="actions">
-          <button class="btn btn-outline" onclick="manLimpiar()">✕ Limpiar</button>
-          <button class="btn btn-primary azul" onclick="manIrPaso2()">Siguiente → Fotografías</button>
+        <div class="form-actions">
+          <button class="btn-back" onclick="manLimpiar()">✕ Limpiar formulario</button>
+          <button class="btn-next" onclick="manIrPaso2()">Siguiente: Fotografías →</button>
         </div>
       </div>
     </div>
@@ -1611,56 +1945,77 @@ window.ingresarComo = function(tipo){
 
   <!-- PASO 2 MAN: FOTOGRAFÍAS -->
   <div id="man-paso2" style="display:none;">
-    <div class="card">
-      <div class="card-header azul"><span class="step-badge">PASO 2</span> TRAZABILIDAD FOTOGRÁFICA</div>
-      <div class="card-body">
-        <p id="man-fotos-desc" style="font-size:13px;color:var(--gris-label);margin-bottom:14px;">Adjunta hasta 3 fotografías. Máx. 2MB por imagen (JPG, PNG).</p>
+    <div class="form-card">
+      <div class="form-card-header azul">
+        <span style="width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,0.25);display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;flex-shrink:0;">2</span>
+        <h3>TRAZABILIDAD FOTOGRÁFICA</h3>
+      </div>
+      <div class="form-card-body">
+        <p id="man-fotos-desc" style="font-size:13px;color:#6b7280;margin-bottom:18px;line-height:1.6;">Adjunta hasta <strong>3 fotografías</strong> de la actividad. Máx. 2MB por imagen (JPG, PNG). Las fotos quedan asociadas al registro para trazabilidad.</p>
+
         <div class="photo-grid-3">
+          <!-- FOTO 1 -->
           <div class="field-group">
-            <div id="man-foto1-label" style="font-size:10px;font-weight:700;color:var(--gris-label);text-transform:uppercase;margin-bottom:5px;">📷 N°1</div>
-            <div class="photo-box" id="pb-man-1">
+            <div id="man-foto1-label" style="font-size:10.5px;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;display:flex;align-items:center;gap:6px;">📷 <span>Fotografía N°1</span></div>
+            <div class="photo-box-premium" id="pb-man-1">
               <input type="file" id="file-man-1" accept="image/*" onchange="handlePhoto('man',1,this)"/>
-              <div class="ph-icon">🖼️</div><div class="ph-title">Seleccionar foto</div><div id="man-foto1-sub" class="ph-sub">Foto de referencia</div>
-              <img id="prev-man-1" class="photo-preview" onclick="openLightbox(this.src)"/>
-              <div id="name-man-1" class="photo-name"></div>
-              <div id="gps-man-1" class="photo-gps"></div>
+              <div class="pbp-num">N°1</div>
+              <div class="pbp-icon">📷</div>
+              <div class="pbp-label" id="man-foto1-sub">Seleccionar foto</div>
+              <div class="pbp-sub">JPG / PNG · máx 2MB</div>
+              <img id="prev-man-1" class="photo-preview-premium" onclick="openLightbox(this.src)"/>
+              <div id="name-man-1" class="photo-caption"></div>
+              <div id="gps-man-1" class="photo-gps" style="font-size:10px;color:#888;margin-top:3px;display:none;"></div>
             </div>
           </div>
+          <!-- FOTO 2 -->
           <div class="field-group">
-            <div id="man-foto2-label" style="font-size:10px;font-weight:700;color:var(--gris-label);text-transform:uppercase;margin-bottom:5px;">📷 N°2</div>
-            <div class="photo-box" id="pb-man-2">
+            <div id="man-foto2-label" style="font-size:10.5px;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;display:flex;align-items:center;gap:6px;">📷 <span>Fotografía N°2</span></div>
+            <div class="photo-box-premium" id="pb-man-2">
               <input type="file" id="file-man-2" accept="image/*" onchange="handlePhoto('man',2,this)"/>
-              <div class="ph-icon">🖼️</div><div class="ph-title">Seleccionar foto</div><div id="man-foto2-sub" class="ph-sub">Foto de referencia</div>
-              <img id="prev-man-2" class="photo-preview" onclick="openLightbox(this.src)"/>
-              <div id="name-man-2" class="photo-name"></div>
-              <div id="gps-man-2" class="photo-gps"></div>
+              <div class="pbp-num" style="background:#1976D2;">N°2</div>
+              <div class="pbp-icon">📷</div>
+              <div class="pbp-label" id="man-foto2-sub">Seleccionar foto</div>
+              <div class="pbp-sub">JPG / PNG · máx 2MB</div>
+              <img id="prev-man-2" class="photo-preview-premium" onclick="openLightbox(this.src)"/>
+              <div id="name-man-2" class="photo-caption"></div>
+              <div id="gps-man-2" class="photo-gps" style="font-size:10px;color:#888;margin-top:3px;display:none;"></div>
             </div>
           </div>
+          <!-- FOTO 3 -->
           <div class="field-group">
-            <div id="man-foto3-label" style="font-size:10px;font-weight:700;color:var(--gris-label);text-transform:uppercase;margin-bottom:5px;">📷 N°3</div>
-            <div class="photo-box" id="pb-man-3">
+            <div id="man-foto3-label" style="font-size:10.5px;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;display:flex;align-items:center;gap:6px;">📷 <span>Fotografía N°3</span></div>
+            <div class="photo-box-premium" id="pb-man-3">
               <input type="file" id="file-man-3" accept="image/*" onchange="handlePhoto('man',3,this)"/>
-              <div class="ph-icon">🖼️</div><div class="ph-title">Seleccionar foto</div><div id="man-foto3-sub" class="ph-sub">Foto de referencia</div>
-              <img id="prev-man-3" class="photo-preview" onclick="openLightbox(this.src)"/>
-              <div id="name-man-3" class="photo-name"></div>
-              <div id="gps-man-3" class="photo-gps"></div>
+              <div class="pbp-num" style="background:#388e3c;">N°3</div>
+              <div class="pbp-icon">📷</div>
+              <div class="pbp-label" id="man-foto3-sub">Seleccionar foto</div>
+              <div class="pbp-sub">JPG / PNG · máx 2MB</div>
+              <img id="prev-man-3" class="photo-preview-premium" onclick="openLightbox(this.src)"/>
+              <div id="name-man-3" class="photo-caption"></div>
+              <div id="gps-man-3" class="photo-gps" style="font-size:10px;color:#888;margin-top:3px;display:none;"></div>
             </div>
           </div>
         </div>
-        <!-- GPS MANUAL -->
-        <div style="margin-top:16px;padding:12px;background:#f0f4fa;border-radius:6px;border:1px solid #c5d8f0;">
-          <div style="font-size:12px;font-weight:700;color:#555;margin-bottom:8px;">📍 Ubicación GPS del registro</div>
-          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
-            <button class="btn btn-outline btn-sm" onclick="captureGPS('man')">📱 Usar mi ubicación actual</button>
-            <span id="man-gps-status" style="font-size:12px;color:#888;">No se ha capturado GPS aún</span>
+
+        <!-- GPS -->
+        <div class="gps-panel">
+          <div class="gps-panel-header">
+            <div style="width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,#1565C0,#1976D2);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;">📍</div>
+            Ubicación GPS del registro
+          </div>
+          <div class="gps-info-row">
+            <button class="btn-next" style="padding:9px 20px;font-size:12.5px;box-shadow:none;" onclick="captureGPS('man')">📱 Usar mi ubicación actual</button>
+            <span id="man-gps-status" style="font-size:12px;color:#667;">No se ha capturado GPS aún</span>
           </div>
           <div id="man-gps-mini-map" class="gps-map-mini"></div>
           <input type="hidden" id="man-lat" value=""/>
           <input type="hidden" id="man-lng" value=""/>
         </div>
-        <div class="actions" style="margin-top:16px;">
-          <button class="btn btn-outline" onclick="manIrPaso1()">← Volver</button>
-          <button class="btn btn-primary azul" id="man-btn-guardar" onclick="manGuardar()">✓ Guardar actividad</button>
+
+        <div class="form-actions" style="margin-top:20px;">
+          <button class="btn-back" onclick="manIrPaso1()">← Volver a antecedentes</button>
+          <button class="btn-save-final" id="man-btn-guardar" onclick="manGuardar()">✓ Guardar actividad</button>
         </div>
       </div>
     </div>
@@ -2875,43 +3230,40 @@ window.manSetFlujo = function(flujo) {
   manFlujoActivo = flujo;
   const btnI = document.getElementById('flujo-btn-insp');
   const btnH = document.getElementById('flujo-btn-hall');
-  const iconI = btnI ? btnI.querySelector('div') : null;
-  const iconH = btnH ? btnH.querySelector('div') : null;
 
+  // Usar clases CSS para los estados seleccionado/no-seleccionado
   if (flujo === 'inspeccion') {
-    if(btnI){ btnI.style.borderColor='#1565C0'; btnI.style.background='#e3f0fb'; btnI.style.boxShadow='0 2px 8px rgba(21,101,192,0.2)'; }
-    if(iconI){ iconI.style.background='#1565C0'; }
-    if(btnH){ btnH.style.borderColor='#ddd'; btnH.style.background='#fff'; btnH.style.boxShadow='none'; }
-    if(iconH){ iconH.style.background='#e0e0e0'; }
+    btnI?.classList.add('selected');
+    btnH?.classList.remove('selected');
     document.getElementById('man-header-txt').textContent = 'INSPECCIÓN / ACTIVIDAD RUTINARIA';
-    document.getElementById('man-sec-insp').style.display='block';
-    document.getElementById('man-sec-hall').style.display='none';
-    document.getElementById('man-sec-vacio').style.display='none';
-    // Fotos inspección
-    document.getElementById('man-foto1-label').textContent='📷 N°1 — Estado inicial / panorámica';
-    document.getElementById('man-foto1-sub').textContent='Vista general del sector inspeccionado';
-    document.getElementById('man-foto2-label').textContent='📷 N°2 — Detalle elemento';
-    document.getElementById('man-foto2-sub').textContent='Zoom al elemento inspeccionado';
-    document.getElementById('man-foto3-label').textContent='📷 N°3 — Resultado / cierre';
-    document.getElementById('man-foto3-sub').textContent='Estado al finalizar la inspección';
-    document.getElementById('man-fotos-desc').textContent='Adjunta fotos de la inspección: estado inicial, detalle y cierre. Máx. 2MB por imagen.';
+    document.getElementById('man-card-header').className = 'form-card-header azul';
+    document.getElementById('man-sec-insp').style.display = 'block';
+    document.getElementById('man-sec-hall').style.display = 'none';
+    document.getElementById('man-sec-vacio').style.display = 'none';
+    // Labels de fotos
+    document.getElementById('man-foto1-label').innerHTML = '📷 <span>N°1 — Estado inicial / panorámica</span>';
+    document.getElementById('man-foto1-sub').textContent = 'Vista general del sector inspeccionado';
+    document.getElementById('man-foto2-label').innerHTML = '📷 <span>N°2 — Detalle elemento</span>';
+    document.getElementById('man-foto2-sub').textContent = 'Zoom al elemento inspeccionado';
+    document.getElementById('man-foto3-label').innerHTML = '📷 <span>N°3 — Resultado / cierre</span>';
+    document.getElementById('man-foto3-sub').textContent = 'Estado al finalizar la inspección';
+    document.getElementById('man-fotos-desc').innerHTML = 'Adjunta fotos de la inspección: <strong>estado inicial</strong>, <strong>detalle</strong> y <strong>cierre</strong>. Máx. 2MB por imagen.';
   } else {
-    if(btnH){ btnH.style.borderColor='#e65100'; btnH.style.background='#fff3e0'; btnH.style.boxShadow='0 2px 8px rgba(230,81,0,0.2)'; }
-    if(iconH){ iconH.style.background='#e65100'; }
-    if(btnI){ btnI.style.borderColor='#ddd'; btnI.style.background='#fff'; btnI.style.boxShadow='none'; }
-    if(iconI){ iconI.style.background='#e0e0e0'; }
+    btnH?.classList.add('selected');
+    btnI?.classList.remove('selected');
     document.getElementById('man-header-txt').textContent = 'HALLAZGO / TRABAJO CORRECTIVO';
-    document.getElementById('man-sec-hall').style.display='block';
-    document.getElementById('man-sec-insp').style.display='none';
-    document.getElementById('man-sec-vacio').style.display='none';
-    // Fotos hallazgo
-    document.getElementById('man-foto1-label').textContent='📷 N°1 — Evidencia del hallazgo';
-    document.getElementById('man-foto1-sub').textContent='Foto clara de la falla o anomalía detectada';
-    document.getElementById('man-foto2-label').textContent='📷 N°2 — Contexto / entorno';
-    document.getElementById('man-foto2-sub').textContent='Ubicación, entorno, elementos adyacentes';
-    document.getElementById('man-foto3-label').textContent='📷 N°3 — Trabajo ejecutado / cierre';
-    document.getElementById('man-foto3-sub').textContent='Estado después de la intervención';
-    document.getElementById('man-fotos-desc').textContent='Adjunta evidencia fotográfica del hallazgo y del trabajo realizado. Máx. 2MB por imagen.';
+    document.getElementById('man-card-header').className = 'form-card-header naranja';
+    document.getElementById('man-sec-hall').style.display = 'block';
+    document.getElementById('man-sec-insp').style.display = 'none';
+    document.getElementById('man-sec-vacio').style.display = 'none';
+    // Labels de fotos
+    document.getElementById('man-foto1-label').innerHTML = '📷 <span>N°1 — Evidencia del hallazgo</span>';
+    document.getElementById('man-foto1-sub').textContent = 'Foto clara de la falla o anomalía detectada';
+    document.getElementById('man-foto2-label').innerHTML = '📷 <span>N°2 — Contexto / entorno</span>';
+    document.getElementById('man-foto2-sub').textContent = 'Ubicación, entorno, elementos adyacentes';
+    document.getElementById('man-foto3-label').innerHTML = '📷 <span>N°3 — Trabajo ejecutado / cierre</span>';
+    document.getElementById('man-foto3-sub').textContent = 'Estado después de la intervención';
+    document.getElementById('man-fotos-desc').innerHTML = 'Adjunta <strong>evidencia fotográfica</strong> del hallazgo y del trabajo realizado. Máx. 2MB por imagen.';
   }
 
   // Poblar select de tipos
